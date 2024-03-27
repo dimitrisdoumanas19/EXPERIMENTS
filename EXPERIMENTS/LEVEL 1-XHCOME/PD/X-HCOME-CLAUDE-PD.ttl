@@ -1,0 +1,308 @@
+@prefix : <http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16> .
+
+<http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hasAssessment
+:hasAssessment rdf:type owl:ObjectProperty ;
+               rdfs:domain :Patient ;
+               rdfs:range :Assessment .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hasObservation
+:hasObservation rdf:type owl:ObjectProperty ;
+                rdfs:domain :Assessment ;
+                rdfs:range :Observation .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#observesSymptom
+:observesSymptom rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Observation ;
+                 rdfs:range :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#triggersAlert
+:triggersAlert rdf:type owl:ObjectProperty ;
+               rdfs:domain :Observation ;
+               rdfs:range :Alert .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hasRecommendedTreatment
+:hasRecommendedTreatment rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Observation ;
+                         rdfs:range :Treatment .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hasMedicationPrescription
+:hasMedicationPrescription rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Treatment ;
+                           rdfs:range :MedicationPrescription .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hasPhysicalTherapy
+:hasPhysicalTherapy rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Treatment ;
+                    rdfs:range :PhysicalTherapy .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hasMotorSkill
+:hasMotorSkill rdf:type owl:ObjectProperty ;
+               rdfs:domain :Observation ;
+               rdfs:range :MotorSkill .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#alertMessage
+:alertMessage rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Alert ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#alertSeverity
+:alertSeverity rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Alert ;
+               rdfs:range :AlertSeverityLevel .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#diseaseDuration
+:diseaseDuration rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Patient ;
+                 rdfs:range xsd:duration .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#dosageFrequency
+:dosageFrequency rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :MedicationPrescription ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#eventID
+:eventID rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Assessment ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#hoehnYahrStage
+:hoehnYahrStage rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Observation ;
+                rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#lastUpdate
+:lastUpdate rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Assessment ;
+            rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#medicationDosage
+:medicationDosage rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :MedicationPrescription ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#motorSkillLevel
+:motorSkillLevel rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :MotorSkill ;
+                 rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#observationDate
+:observationDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Assessment ;
+                 rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#originalEntry
+:originalEntry rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Assessment ;
+               rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#patientID
+:patientID rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Patient ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#query
+:query rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Assessment ;
+       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#severityScore
+:severityScore rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Observation ;
+               rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#siteApproval
+:siteApproval rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Assessment ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#therapyDuration
+:therapyDuration rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :PhysicalTherapy ;
+                 rdfs:range xsd:duration .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#therapyFrequency
+:therapyFrequency rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :PhysicalTherapy ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#therapyType
+:therapyType rdf:type owl:DatatypeProperty ;
+            rdfs:domain :PhysicalTherapy ;
+            rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#ActivityDifficulty
+:ActivityDifficulty rdf:type owl:Class ;
+                    rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Alert
+:Alert rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#AlertSeverityLevel
+:AlertSeverityLevel rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Assessment
+:Assessment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#DressingDifficulty
+:DressingDifficulty rdf:type owl:Class ;
+                    rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#EatingDifficulty
+:EatingDifficulty rdf:type owl:Class ;
+                  rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#FreezingOfGait
+:FreezingOfGait rdf:type owl:Class ;
+                rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#HandwritingDifficulty
+:HandwritingDifficulty rdf:type owl:Class ;
+                       rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#HygieneDifficulty
+:HygieneDifficulty rdf:type owl:Class ;
+                   rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#MedicationPrescription
+:MedicationPrescription rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#MotorSkill
+:MotorSkill rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Observation
+:Observation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Patient
+:Patient rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#PhysicalTherapy
+:PhysicalTherapy rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#RisingDifficulty
+:RisingDifficulty rdf:type owl:Class ;
+                  rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Salivation
+:Salivation rdf:type owl:Class ;
+            rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#SpeechImpairment
+:SpeechImpairment rdf:type owl:Class ;
+                  rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Symptom
+:Symptom rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#SwallowingDifficulty
+:SwallowingDifficulty rdf:type owl:Class ;
+                      rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Tremor
+:Tremor rdf:type owl:Class ;
+       rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Treatment
+:Treatment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#TurningDifficulty
+:TurningDifficulty rdf:type owl:Class ;
+                   rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#UpperLimbBradykinesia
+:UpperLimbBradykinesia rdf:type owl:Class ;
+                       rdfs:subClassOf :Symptom .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#WalkingDifficulty
+:WalkingDifficulty rdf:type owl:Class ;
+                   rdfs:subClassOf :Symptom .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#High
+:High rdf:type owl:NamedIndividual ,
+               :AlertSeverityLevel .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Low
+:Low rdf:type owl:NamedIndividual ,
+              :AlertSeverityLevel .
+
+
+###  http://www.semanticweb.org/ontologies/2023/3/untitled-ontology-16#Medium
+:Medium rdf:type owl:NamedIndividual ,
+                :AlertSeverityLevel .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

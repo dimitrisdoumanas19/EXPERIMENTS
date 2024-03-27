@@ -1,0 +1,51 @@
+@prefix : <http://example.org/parkinsons#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+:ParkinsonsDisease a owl:Class ;
+    rdfs:label "Parkinson's Disease"@en .
+
+:Patient a owl:Class ;
+    rdfs:subClassOf :ParkinsonsDisease ;
+    rdfs:label "Patient"@en .
+
+:Medication a owl:Class ;
+    rdfs:label "Medication"@en .
+
+:Observation a owl:Class ;
+    rdfs:label "Observation"@en .
+
+:BodyPart a owl:Class ;
+    rdfs:label "Body Part"@en .
+
+:Alert a owl:Class ;
+    rdfs:label "Alert"@en .
+
+:hasObservation a owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:range :Observation ;
+    rdfs:label "has observation"@en .
+
+:involvesBodyPart a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :BodyPart ;
+    rdfs:label "involves body part"@en .
+
+:hasMedication a owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:range :Medication ;
+    rdfs:label "has medication"@en .
+
+:hasSchedule a owl:ObjectProperty ;
+    rdfs:domain :Medication ;
+    rdfs:range :Schedule ;
+    rdfs:label "has schedule"@en .
+
+:Schedule a owl:Class ;
+    rdfs:label "Schedule"@en .
+
+:hasObservationTime a owl:DatatypeProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has observation time"@en .

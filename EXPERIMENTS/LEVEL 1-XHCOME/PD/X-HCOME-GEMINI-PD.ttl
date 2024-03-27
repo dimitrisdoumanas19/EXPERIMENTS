@@ -1,0 +1,174 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix parkinson: <http://parkinsonsDiseaseOntology.owl#> .
+
+<http://parkinsonsDiseaseOntology.owl>
+    rdf:type owl:Ontology ;
+    owl:imports <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+parkinson:Patient rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+parkinson:ParkinsonSymptom rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+# Motor and Non-Motor Symptoms as Subclasses of ParkinsonSymptom
+parkinson:MotorSymptom rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:ParkinsonSymptom .
+
+parkinson:NonMotorSymptom rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:ParkinsonSymptom .
+
+# Specific Motor Symptoms
+parkinson:Tremor rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:MotorSymptom .
+
+parkinson:Bradykinesia rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:MotorSymptom .
+
+parkinson:Rigity rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:MotorSymptom .
+
+parkinson:Posture rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:MotorSymptom .
+
+parkinson:FreezingOfGait rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:MotorSymptom .
+
+# More Specific Non-Motor Symptoms
+parkinson:Fatigue rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+parkinson:SleepDisorder rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+parkinson:REMsleepBehaviorDisorder rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:SleepDisorder .
+
+parkinson:CognitiveImpairment rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+parkinson:Dementia rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:CognitiveImpairment .
+
+parkinson:Fatigue rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+parkinson:Mood rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+
+parkinson:Depression rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Mood .
+
+parkinson:Pain rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+parkinson:RestlessLegsSyndrome rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Pain .
+
+# Sensory Disorder as a subclass of NonMotorSymptom
+parkinson:SensoryDisorder rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:NonMotorSymptom .
+
+# WearableSensor and its subclasses
+parkinson:WearableSensor rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+parkinson:Accelerometer rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:WearableSensor .
+
+parkinson:Gyroscope rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:WearableSensor .
+
+# SensorData class with properties
+parkinson:SensorData rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+# Properties for SensorData
+parkinson:hasTimestamp rdf:type owl:DatatypeProperty ;
+    rdfs:domain parkinson:SensorData ;
+    rdfs:range xsd:dateTime .
+
+parkinson:hasSensorType rdf:type owl:ObjectProperty ;
+    rdfs:domain parkinson:SensorData ;
+    rdfs:range parkinson:WearableSensor .
+
+# Alert class and its specific types
+parkinson:Alert rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+parkinson:hasMessage rdf:type owl:DatatypeProperty ;
+    rdfs:domain parkinson:Alert ;
+    rdfs:range rdfs:Literal .
+
+parkinson:hasSeverityLevel rdf:type owl:ObjectProperty ;
+    rdfs:domain parkinson:Alert ;
+    rdfs:range parkinson:SeverityLevel .
+
+# Specific Alert subclasses
+parkinson:FallDetectionAlert rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Alert .
+
+parkinson:DyskinesiaDetectionAlert rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Alert .
+
+parkinson:MedicationDosageAlert rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Alert .
+
+# SeverityLevel class with enumeration
+parkinson:SeverityLevel rdf:type owl:Class ;
+    owl:oneOf (parkinson:Level1 parkinson:Level2 parkinson:Level3 parkinson:Level4 parkinson:Level5) .
+
+# Treatment, Medication, and Therapy classes
+parkinson:Treatment rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+parkinson:Medication rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Treatment .
+
+# Properties for Medication
+parkinson:hasDosage rdf:type owl:DatatypeProperty ;
+    rdfs:domain parkinson:Medication ;
+    rdfs:range xsd:float .
+
+parkinson:hasDosageSchedule rdf:type owl:ObjectProperty ;
+    rdfs:domain parkinson:Medication ;
+    rdfs:range parkinson:DosageSchedule .
+
+# DosageSchedule class with properties
+parkinson:DosageSchedule rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+parkinson:hasFrequency rdf:type owl:DatatypeProperty ;
+    rdfs:domain parkinson:DosageSchedule ;
+    rdfs:range xsd:string .
+
+parkinson:hasTimeOfDay rdf:type owl:DatatypeProperty ;
+    rdfs:domain parkinson:DosageSchedule ;
+    rdfs:range xsd:time .
+
+# Therapy subclass of Treatment with subclasses
+parkinson:Therapy rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Treatment .
+
+parkinson:PhysicalTherapy rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Therapy .
+
+parkinson:SpeechTherapy rdf:type owl:Class ;
+    rdfs:subClassOf parkinson:Therapy .
+
+# Doctor class with a property
+parkinson:Doctor rdf:type owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+parkinson:specializesIn rdf:type owl:DatatypeProperty ;
+    rdfs:domain parkinson:Doctor ;
+    rdfs:range parkinson:MedicalSpecialty .
+
+
+
+

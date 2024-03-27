@@ -1,0 +1,153 @@
+
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix pdma: <http://pdma-ontology.org#> .
+
+# Classes
+pdma:Patient rdf:type owl:Class .
+pdma:MedicalDiagnosis rdf:type owl:Class .
+pdma:Symptom rdf:type owl:Class .
+pdma:RecognizedEvent rdf:type owl:Class .
+pdma:Data rdf:type owl:Class .
+pdma:SensorType  rdf:type owl:Class .
+pdma:Action  rdf:type owl:Class .
+pdma:Event  rdf:type owl:Class .
+pdma:Communication  rdf:type owl:Class .
+pdma:HealthcareProfessional  rdf:type owl:Class .
+pdma:MedicalRecord  rdf:type owl:Class .
+pdma:MedicalRecommendation  rdf:type owl:Class .
+pdma:Authorization  rdf:type owl:Class .
+pdma:TimeInterval  rdf:type owl:Class .
+pdma:MedicalProduct   rdf:type owl:Class .
+pdma:MedicalCondition  rdf:type owl:Class .
+
+pdma:PDPatient rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Patient .
+
+pdma:PDDiagnosis rdf:type owl:Class ;
+    rdfs:subClassOf pdma:MedicalDiagnosis .
+
+pdma:PDTremor rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Symptom .
+
+pdma:PDBradykinesia rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Symptom .
+
+pdma:PDFallingEventObservation rdf:type owl:Class ;
+    rdfs:subClassOf pdma:RecognizedEvent .
+
+pdma:PDMissingDoseEventObservation rdf:type owl:Class ;
+    rdfs:subClassOf pdma:RecognizedEvent .
+
+pdma:Rigidity rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Symptom .
+
+pdma:GaitImpairment rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Symptom .
+
+# Sensor Data Classes
+pdma:SensorData rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Data .
+
+pdma:SmartWatch rdf:type owl:Class ;
+    rdfs:subClassOf pdma:SensorType .
+
+pdma:WalkingActivity rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Activity .
+
+# Add other activity types as needed
+
+# Activities of Daily Living Class
+pdma:Activity rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Action .
+
+# Alerting System Classes
+pdma:RecognizedEvent rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Event .
+
+pdma:AlertNotification rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Communication .
+
+pdma:Doctor rdf:type owl:Class ;
+    rdfs:subClassOf pdma:HealthcareProfessional .
+
+# Patient Health Records Classes
+pdma:PatientHealthRecord rdf:type owl:Class ;
+    rdfs:subClassOf pdma:MedicalRecord .
+
+pdma:DailyDosagePlan rdf:type owl:Class ;
+    rdfs:subClassOf pdma:MedicalRecommendation .
+
+pdma:MedicalPrescription rdf:type owl:Class ;
+    rdfs:subClassOf pdma:Authorization .
+
+pdma:DosageTime rdf:type owl:Class ;
+    rdfs:subClassOf pdma:TimeInterval .
+
+pdma:Medication rdf:type owl:Class ;  # New class for medication details
+    rdfs:subClassOf pdma:MedicalProduct .
+
+# Additional Concepts
+pdma:SketchingActivity rdf:type owl:Class ;  # Example activity for further development
+    rdfs:subClassOf pdma:Activity .
+
+pdma:RiskFactor rdf:type owl:Class ;  # New class for risk factors
+    rdfs:subClassOf pdma:MedicalCondition .
+
+pdma:Complication rdf:type owl:Class ;  # New class for complications
+    rdfs:subClassOf pdma:MedicalCondition .
+
+# Data Properties
+pdma:hasTremorScore rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:int .
+
+pdma:hasBradykinesiaScore rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:int .
+
+pdma:medicationType rdf:type owl:DatatypeProperty ;
+    rdfs:domain pdma:Medication ;
+    rdfs:range xsd:string .
+
+pdma:medicationPurpose rdf:type owl:DatatypeProperty ;
+    rdfs:domain pdma:Medication ;
+    rdfs:range xsd:string .
+
+# Object Properties
+pdma:performs rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:PDPatient ;
+    rdfs:range pdma:Activity .
+
+pdma:describes rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:SensorData ;
+    rdfs:range pdma:RecognizedEvent .
+
+pdma:triggers rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:RecognizedEvent ;
+    rdfs:range pdma:AlertNotification .
+
+pdma:informs rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:AlertNotification ;
+    rdfs:range pdma:Doctor .
+
+pdma:hasDiagnosis rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:PDPatient ;
+    rdfs:range pdma:PDDiagnosis .
+
+pdma:records rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:Doctor ;
+    rdfs:range pdma:RecognizedEvent .
+
+pdma:includesMedication rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:DailyDosagePlan ;
+    rdfs:range pdma:Medication .
+
+pdma:hasRiskFactor rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:PDPatient ;
+    rdfs:range pdma:RiskFactor .
+
+pdma:hasComplication rdf:type owl:ObjectProperty ;
+    rdfs:domain pdma:PDPatient ;
+    rdfs:range pdma:Complication .
+

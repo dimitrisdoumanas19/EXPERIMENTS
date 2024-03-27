@@ -1,0 +1,31 @@
+@prefix : <http://example.org/ontology/parkinsons#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Patient rdf:type owl:Class .
+
+:Observation rdf:type owl:Class .
+
+:Medication rdf:type owl:Class .
+
+:Symptom rdf:type owl:Class .
+:Bradykinesia rdf:type owl:Class ; rdfs:subClassOf :Symptom .
+:Tremor rdf:type owl:Class ; rdfs:subClassOf :Symptom .
+:Rigidity rdf:type owl:Class ; rdfs:subClassOf :Symptom .
+
+:Notification rdf:type owl:Class .
+
+:hasSymptom rdf:type owl:ObjectProperty ; rdfs:domain :Patient ; rdfs:range :Symptom .
+
+:observes rdf:type owl:ObjectProperty ; rdfs:domain :Patient ; rdfs:range :Observation .
+
+:takesMedication rdf:type owl:ObjectProperty ; rdfs:domain :Patient ; rdfs:range :Medication .
+
+:sendsNotification rdf:type owl:ObjectProperty ; rdfs:domain :Observation ; rdfs:range :Notification .
+
+:MedicationIntakeObservation rdf:type owl:Class ; rdfs:subClassOf :Observation .
+:SymptomObservation rdf:type owl:Class ; rdfs:subClassOf :Observation .
+
+:observationTime rdf:type owl:DatatypeProperty ; rdfs:domain :Observation ; rdfs:range xsd:dateTime .

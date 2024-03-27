@@ -1,0 +1,22 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/parkinson_ontology#> .
+
+:Patient a owl:Class .
+:Medication a owl:Class .
+:Symptom a owl:Class .
+:Observation a owl:Class .
+
+:hasObservationTime a owl:DatatypeProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range xsd:dateTime .
+
+:observedIn a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :Patient .
+
+:observedSymptom a owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :Symptom .

@@ -1,0 +1,274 @@
+@prefix : <http://www.semanticweb.org/ontologies/2023/5/SAR-Wildfire#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/2023/5/SAR-Wildfire> .
+
+<http://www.semanticweb.org/ontologies/2023/5/SAR-Wildfire> rdf:type owl:Ontology .
+
+#################################################################
+
+# Object Properties
+#################################################################
+
+:hasWeatherForecast rdf:type owl:ObjectProperty ;
+    rdfs:domain :FireIncident ;
+    rdfs:range :WeatherForecast .
+
+:involvedInFireIncident rdf:type owl:ObjectProperty ;
+    rdfs:domain :InvolvedPerson ,
+                 :VulnerableObject ;
+    rdfs:range :FireIncident .
+
+:locatedInArea rdf:type owl:ObjectProperty ;
+    rdfs:domain :FireIncident ,
+                 :InvolvedPerson ,
+                 :Observation ,
+                 :PopulatedArea ,
+                 :VulnerableObject ;
+    rdfs:range :Location .
+
+:observedInFireIncident rdf:type owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range :FireIncident .
+
+:providesService rdf:type owl:ObjectProperty ;
+    rdfs:domain :EmergencyService ;
+    rdfs:range :Mission .
+
+#################################################################
+
+# Data Properties
+#################################################################
+
+:altitude rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:float .
+
+:creationDateTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range xsd:dateTime .
+
+:forecastedLocation rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherForecast ;
+    rdfs:range :Location .
+
+:forecastedTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherForecast ;
+    rdfs:range xsd:dateTime .
+
+:forecastedValues rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherForecast ;
+    rdfs:range rdf:Literal .
+
+:humidity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherVariable ;
+    rdfs:range xsd:float .
+
+:latitude rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:float .
+
+:longitude rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:float .
+
+:missionLocation rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Mission ;
+    rdfs:range :Location .
+
+:missionType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Mission ;
+    rdfs:range rdf:Literal .
+
+:observationData rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range rdf:Literal .
+
+:observationType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Observation ;
+    rdfs:range rdf:Literal .
+
+:populationDensity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :PopulatedArea ;
+    rdfs:range xsd:float .
+
+:priorityLevel rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireIncident ;
+    rdfs:range xsd:int .
+
+:serviceName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :EmergencyService ;
+    rdfs:range rdf:Literal .
+
+:serviceType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :EmergencyService ;
+    rdfs:range rdf:Literal .
+
+:smokeIntensity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :SmokeClassification ;
+    rdfs:range xsd:float .
+
+:smokeType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :SmokeClassification ;
+    rdfs:range rdf:Literal .
+
+:temperature rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherVariable ;
+    rdfs:range xsd:float .
+
+:urgency rdf:type owl:DatatypeProperty ;
+    rdfs:domain :FireIncident ;
+    rdfs:range xsd:int .
+
+:windSpeed rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WeatherVariable ;
+    rdfs:range xsd:float .
+
+#################################################################
+
+# Classes
+#################################################################
+
+:EmergencyService rdf:type owl:Class .
+
+:FireIncident rdf:type owl:Class .
+
+:Humidity rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherVariable .
+
+:InvolvedPerson rdf:type owl:Class .
+
+:Location rdf:type owl:Class .
+
+:Mission rdf:type owl:Class .
+
+:Observation rdf:type owl:Class .
+
+:PopulatedArea rdf:type owl:Class .
+
+:SmokeClassification rdf:type owl:Class .
+
+:Temperature rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherVariable .
+
+:VulnerableObject rdf:type owl:Class .
+
+:WeatherForecast rdf:type owl:Class .
+
+:WeatherVariable rdf:type owl:Class .
+
+:WindSpeed rdf:type owl:Class ;
+    rdfs:subClassOf :WeatherVariable .
+
+#################################################################
+
+# Individuals
+#################################################################
+
+:Evacuation rdf:type owl:NamedIndividual ,
+                  :EmergencyService .
+
+:FireFighting rdf:type owl:NamedIndividual ,
+                    :EmergencyService .
+
+:MedicalAssistance rdf:type owl:NamedIndividual ,
+                       :EmergencyService .
+
+:SearchAndRescue rdf:type owl:NamedIndividual ,
+                      :EmergencyService .
+
+#################################################################
+
+# Annotations
+#################################################################
+
+:EmergencyService rdfs:label "EmergencyService"@en .
+
+:FireIncident rdfs:label "FireIncident"@en .
+
+:Humidity rdfs:label "Humidity"@en .
+
+:InvolvedPerson rdfs:label "InvolvedPerson"@en .
+
+:Location rdfs:label "Location"@en .
+
+:Mission rdfs:label "Mission"@en .
+
+:Observation rdfs:label "Observation"@en .
+
+:PopulatedArea rdfs:label "PopulatedArea"@en .
+
+:SmokeClassification rdfs:label "SmokeClassification"@en .
+
+:Temperature rdfs:label "Temperature"@en .
+
+:VulnerableObject rdfs:label "VulnerableObject"@en .
+
+:WeatherForecast rdfs:label "WeatherForecast"@en .
+
+:WeatherVariable rdfs:label "WeatherVariable"@en .
+
+:WindSpeed rdfs:label "WindSpeed"@en .
+
+:Evacuation rdfs:label "Evacuation"@en .
+
+:FireFighting rdfs:label "FireFighting"@en .
+
+:MedicalAssistance rdfs:label "MedicalAssistance"@en .
+
+:SearchAndRescue rdfs:label "SearchAndRescue"@en .
+
+:altitude rdfs:label "altitude"@en .
+
+:creationDateTime rdfs:label "creationDateTime"@en .
+
+:forecastedLocation rdfs:label "forecastedLocation"@en .
+
+:forecastedTime rdfs:label "forecastedTime"@en .
+
+:forecastedValues rdfs:label "forecastedValues"@en .
+
+:hasWeatherForecast rdfs:label "hasWeatherForecast"@en .
+
+:humidity rdfs:label "humidity"@en .
+
+:involvedInFireIncident rdfs:label "involvedInFireIncident"@en .
+
+:latitude rdfs:label "latitude"@en .
+
+:locatedInArea rdfs:label "locatedInArea"@en .
+
+:longitude rdfs:label "longitude"@en .
+
+:missionLocation rdfs:label "missionLocation"@en .
+
+:missionType rdfs:label "missionType"@en .
+
+:observationData rdfs:label "observationData"@en .
+
+:observationType rdfs:label "observationType"@en .
+
+:observedInFireIncident rdfs:label "observedInFireIncident"@en .
+
+:populationDensity rdfs:label "populationDensity"@en .
+
+:priorityLevel rdfs:label "priorityLevel"@en .
+
+:providesService rdfs:label "providesService"@en .
+
+:serviceName rdfs:label "serviceName"@en .
+
+:serviceType rdfs:label "serviceType"@en .
+
+:smokeIntensity rdfs:label "smokeIntensity"@en .
+
+:smokeType rdfs:label "smokeType"@en .
+
+:temperature rdfs:label "temperature"@en .
+
+:urgency rdfs:label "urgency"@en .
+
+:windSpeed rdfs:label "windSpeed"@en .

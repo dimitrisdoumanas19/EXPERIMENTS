@@ -1,0 +1,85 @@
+@prefix ns1: <http://www.w3.org/2003/11/swrl#> .
+@prefix ns2: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/ns#Bradykinesia> a rdfs:Class ;
+    rdfs:subClassOf <http://example.org/ns#MotorSymptom> .
+
+<http://example.org/ns#DailyLivingActivity> a rdfs:Class .
+
+<http://example.org/ns#FallingEvent> a rdfs:Class ;
+    rdfs:subClassOf <http://example.org/ns#Observation> .
+
+<http://example.org/ns#MedicalPrescription> a rdfs:Class .
+
+<http://example.org/ns#MedicationEvent> a rdfs:Class .
+
+<http://example.org/ns#MissingDoseEvent> a rdfs:Class ;
+    rdfs:subClassOf <http://example.org/ns#Observation> ;
+    ns2:inverseOf <http://example.org/ns#MedicationEvent> .
+
+<http://example.org/ns#MotorSymptom> a rdfs:Class .
+
+<http://example.org/ns#MovementPattern> a rdfs:Class .
+
+<http://example.org/ns#NonMotorSymptom> a rdfs:Class .
+
+<http://example.org/ns#Observation> a rdfs:Class .
+
+<http://example.org/ns#PHR> a rdfs:Class .
+
+<http://example.org/ns#Patient> a rdfs:Class .
+
+<http://example.org/ns#SensorData> a rdfs:Class .
+
+<http://example.org/ns#Tremor> a rdfs:Class ;
+    rdfs:subClassOf <http://example.org/ns#MotorSymptom> .
+
+<http://example.org/ns#UPDRS_Part> a rdfs:Class .
+
+<http://example.org/ns#MissingDoseRule> a ns2:NamedIndividual,
+        ns1:Imp ;
+    ns1:body <http://example.org/ns#BradykinesiaObservation> ;
+    ns1:head <http://example.org/ns#MissingDoseEvent> .
+
+<http://example.org/ns#generates> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#SensorData> ;
+    rdfs:range <http://example.org/ns#MovementPattern> .
+
+<http://example.org/ns#hasMedicalPrescription> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Patient> ;
+    rdfs:range <http://example.org/ns#MedicalPrescription> .
+
+<http://example.org/ns#hasMotorSymptom> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Patient> ;
+    rdfs:range <http://example.org/ns#MotorSymptom> .
+
+<http://example.org/ns#hasNonMotorSymptom> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Patient> ;
+    rdfs:range <http://example.org/ns#NonMotorSymptom> .
+
+<http://example.org/ns#hasObservation> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Patient> ;
+    rdfs:range <http://example.org/ns#Observation> .
+
+<http://example.org/ns#partOfUPDRS> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Observation> ;
+    rdfs:range <http://example.org/ns#UPDRS_Part> .
+
+<http://example.org/ns#performsActivity> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Patient> ;
+    rdfs:range <http://example.org/ns#DailyLivingActivity> .
+
+<http://example.org/ns#recordedIn> a rdf:Property,
+        ns2:ObjectProperty ;
+    rdfs:domain <http://example.org/ns#Observation> ;
+    rdfs:range <http://example.org/ns#PHR> .
+

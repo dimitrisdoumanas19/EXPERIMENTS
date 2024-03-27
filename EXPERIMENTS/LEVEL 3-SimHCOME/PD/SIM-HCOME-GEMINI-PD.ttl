@@ -1,0 +1,21 @@
+@prefix parkinson: <http://example.org/parkinsons#> .
+
+parkinson:Patient  rdfs:subClassOf  foaf:Person .
+parkinson:Medication  rdfs:subClassOf  schema:Thing .
+parkinson:Symptom  rdfs:subClassOf  schema:MedicalCondition .
+parkinson:ParkinsonSymptom  rdfs:subClassOf  parkinson:Symptom .
+parkinson:Observation  rdfs:subClassOf  schema:Observation .
+parkinson:Schedule  rdfs:subClassOf  schema:Schedule .
+
+parkinson:hasPatient  rdf:type  rdf:Property .
+parkinson:hasMedication  rdf:type  rdf:Property .
+parkinson:hasSymptom  rdf:type  rdf:Property .
+parkinson:affectsBodyPart  rdf:type  rdf:Property .
+parkinson:alertType  rdf:type  rdf:Property .
+
+parkinson:ParkinsonSymptom  rdfs:subClassOf  [ rdfs:domain parkinson:ParkinsonSymptom ; 
+                                             rdfs:range  schema:BodyPart ] .
+
+parkinson:Observation  rdfs:domain  parkinson:Patient .
+parkinson:Observation  rdfs:range  parkinson:Symptom .
+

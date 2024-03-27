@@ -1,0 +1,64 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wildfire_sar: <http://example.com/wildfire.sar#> .
+
+# Classes
+
+wildfire_sar:FireIncident rdf:type owl:Class .
+wildfire_sar:WeatherCondition rdf:type owl:Class .
+wildfire_sar:SensorData rdf:type owl:Class .
+wildfire_sar:SARMission rdf:type owl:Class .
+wildfire_sar:EmergencyService rdf:type owl:Class .
+wildfire_sar:Incident rdf:type owl:Class .
+wildfire_sar:Victim rdf:type owl:Class .
+wildfire_sar:FireOfficer rdf:type owl:Class .
+wildfire_sar:PermanentFireOfficer rdf:type owl:Class .
+wildfire_sar:SeasonalFireOfficer rdf:type owl:Class .
+wildfire_sar:InvestmentInstrument rdf:type owl:Class .
+
+# Properties
+wildfire_sar:hasDateOfIncident rdf:type owl:DatatypeProperty .
+wildfire_sar:hasDateOfIncident rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasInceptionTime rdf:type owl:DatatypeProperty .
+wildfire_sar:hasInceptionTime rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasPartialControlTime rdf:type owl:DatatypeProperty .
+wildfire_sar:hasPartialControlTime rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasNotificationMethod rdf:type owl:DatatypeProperty .
+wildfire_sar:hasNotificationMethod rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasLocation rdf:type owl:ObjectProperty .
+wildfire_sar:hasLocation rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasGeographicCoordinates rdf:type owl:DatatypeProperty .
+wildfire_sar:hasGeographicCoordinates rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasAltitude rdf:type owl:DatatypeProperty .
+wildfire_sar:hasAltitude rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasStartingPoint rdf:type owl:DatatypeProperty .
+wildfire_sar:hasStartingPoint rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasPossibleCauseOfFire rdf:type owl:DatatypeProperty .
+wildfire_sar:hasPossibleCauseOfFire rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasAreaBurnt rdf:type owl:DatatypeProperty .
+wildfire_sar:hasAreaBurnt rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasOffenderIdentified rdf:type owl:DatatypeProperty .
+wildfire_sar:hasOffenderIdentified rdfs:domain wildfire_sar:FireIncident .
+wildfire_sar:hasRegion rdf:type owl:ObjectProperty .
+wildfire_sar:hasRegion rdfs:domain wildfire_sar:Location .
+wildfire_sar:hasSource rdf:type owl:ObjectProperty .
+wildfire_sar:hasSource rdfs:domain wildfire_sar:SensorData .
+wildfire_sar:isAssociatedWith rdf:type owl:ObjectProperty .
+wildfire_sar:isAssociatedWith rdfs:domain wildfire_sar:SensorData .
+wildfire_sar:targets rdf:type owl:ObjectProperty .
+wildfire_sar:targets rdfs:domain wildfire_sar:SARMission .
+wildfire_sar:participatesIn rdf:type owl:ObjectProperty .
+wildfire_sar:participatesIn rdfs:domain wildfire_sar:EmergencyService .
+wildfire_sar:isCausedBy rdf:type owl:ObjectProperty .
+wildfire_sar:isCausedBy rdfs:domain wildfire_sar:Incident .
+wildfire_sar:hasLocation rdf:type owl:ObjectProperty .
+wildfire_sar:hasLocation rdfs:domain wildfire_sar:Victim .
+wildfire_sar:isAssociatedWith rdf:type owl:ObjectProperty .
+wildfire_sar:isAssociatedWith rdfs:domain wildfire_sar:Victim .
+wildfire_sar:hasAssignment rdf:type owl:ObjectProperty .
+wildfire_sar:hasAssignment rdfs:domain wildfire_sar:FireOfficer .
+wildfire_sar:isDeployedIn rdf:type owl:ObjectProperty .
+wildfire_sar:isDeployedIn rdfs:domain wildfire_sar:InvestmentInstrument .
+
+

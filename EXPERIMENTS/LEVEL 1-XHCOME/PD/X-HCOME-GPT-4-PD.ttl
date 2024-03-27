@@ -1,0 +1,88 @@
+
+@prefix : <http://example.org/ontology/pd_management#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/ontology/pd_management>
+    rdf:type owl:Ontology ;
+    owl:versionInfo "1.0" .
+
+### Classes
+
+:Patient rdf:type owl:Class .
+
+:Assessment rdf:type owl:Class .
+
+:Symptom rdf:type owl:Class .
+
+:Activity rdf:type owl:Class .
+
+### Patients
+
+:PD_Patient rdf:type owl:Class ;
+            rdfs:subClassOf :Patient .
+
+### Symptoms
+
+:Speech rdf:type owl:Class ;
+        rdfs:subClassOf :Symptom .
+
+:Salivation rdf:type owl:Class ;
+            rdfs:subClassOf :Symptom .
+
+:Swallowing rdf:type owl:Class ;
+            rdfs:subClassOf :Symptom .
+
+### Activities
+
+:Eating rdf:type owl:Class ;
+        rdfs:subClassOf :Activity .
+
+:Dressing rdf:type owl:Class ;
+          rdfs:subClassOf :Activity .
+
+:Handwriting rdf:type owl:Class ;
+              rdfs:subClassOf :Activity .
+
+### Properties
+
+:hasAssessment rdf:type owl:ObjectProperty ;
+               rdfs:domain :Patient ;
+               rdfs:range :Assessment .
+
+:assessesSymptom rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Assessment ;
+                 rdfs:range :Symptom .
+
+:performsActivity rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Patient ;
+                  rdfs:range :Activity .
+
+### Individuals
+
+# Example individual for demonstration
+:Patient_1151 rdf:type :PD_Patient .
+
+:Assessment_395991601 rdf:type :Assessment ;
+                       :hasAssessment :Patient_1151 .
+
+:Speech_Symptom rdf:type :Speech ;
+                :assessesSymptom :Assessment_395991601 .
+
+### Data Properties
+
+:score rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Symptom ;
+       rdfs:range xsd:integer .
+
+:observationDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain [:Symptom :Activity] ;
+                 rdfs:range xsd:date .
+
+### Example Scores
+
+:Speech_Symptom :score "0"^^xsd:integer ;
+                :observationDate "2013-04"^^xsd:date .
+

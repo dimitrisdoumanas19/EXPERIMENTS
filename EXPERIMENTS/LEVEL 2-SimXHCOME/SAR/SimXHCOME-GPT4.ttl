@@ -1,0 +1,251 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sar: <http://www.semanticweb.org/sar/ontology#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology
+ ] .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/sar/ontology#causedBy
+sar:causedBy rdf:type owl:ObjectProperty ;
+             rdfs:domain sar:FireIncident ;
+             rdfs:range sar:FireCause .
+
+
+###  http://www.semanticweb.org/sar/ontology#employsResource
+sar:employsResource rdf:type owl:ObjectProperty ;
+                    rdfs:domain sar:ResponseForce ;
+                    rdfs:range sar:Resource .
+
+
+###  http://www.semanticweb.org/sar/ontology#hasImpact
+sar:hasImpact rdf:type owl:ObjectProperty ;
+              rdfs:domain sar:FireIncident ;
+              rdfs:range sar:FireImpact .
+
+
+###  http://www.semanticweb.org/sar/ontology#hasLocation
+sar:hasLocation rdf:type owl:ObjectProperty ;
+                rdfs:domain sar:FireIncident ;
+                rdfs:range sar:Location .
+
+
+###  http://www.semanticweb.org/sar/ontology#hasWeatherCondition
+sar:hasWeatherCondition rdf:type owl:ObjectProperty ;
+                        rdfs:domain sar:FireIncident ;
+                        rdfs:range sar:WeatherCondition .
+
+
+###  http://www.semanticweb.org/sar/ontology#observedBy
+sar:observedBy rdf:type owl:ObjectProperty ;
+               rdfs:domain sar:FireIncident ;
+               rdfs:range sar:Observation .
+
+
+###  http://www.semanticweb.org/sar/ontology#partOfMission
+sar:partOfMission rdf:type owl:ObjectProperty ;
+                  rdfs:domain sar:Service ;
+                  rdfs:range sar:Mission .
+
+
+###  http://www.semanticweb.org/sar/ontology#respondedBy
+sar:respondedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain sar:FireIncident ;
+                rdfs:range sar:ResponseForce .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/sar/ontology#altitude
+sar:altitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain sar:Location ;
+             rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/sar/ontology#endTime
+sar:endTime rdf:type owl:DatatypeProperty ;
+            rdfs:domain sar:FireIncident ;
+            rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/sar/ontology#humidity
+sar:humidity rdf:type owl:DatatypeProperty ;
+             rdfs:domain sar:WeatherCondition ;
+             rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/sar/ontology#latitude
+sar:latitude rdf:type owl:DatatypeProperty ;
+             rdfs:domain sar:Location ;
+             rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/sar/ontology#longitude
+sar:longitude rdf:type owl:DatatypeProperty ;
+              rdfs:domain sar:Location ;
+              rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/sar/ontology#startTime
+sar:startTime rdf:type owl:DatatypeProperty ;
+              rdfs:domain sar:FireIncident ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/sar/ontology#temperature
+sar:temperature rdf:type owl:DatatypeProperty ;
+                rdfs:domain sar:WeatherCondition ;
+                rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/sar/ontology#windSpeed
+sar:windSpeed rdf:type owl:DatatypeProperty ;
+              rdfs:domain sar:WeatherCondition ;
+              rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/sar/ontology#Accidental
+sar:Accidental rdf:type owl:Class ;
+               rdfs:subClassOf sar:FireCause .
+
+
+###  http://www.semanticweb.org/sar/ontology#Arson
+sar:Arson rdf:type owl:Class ;
+          rdfs:subClassOf sar:FireCause .
+
+
+###  http://www.semanticweb.org/sar/ontology#CommunityPreparedness
+sar:CommunityPreparedness rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#EcologicalImpact
+sar:EcologicalImpact rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#EducationCampaign
+sar:EducationCampaign rdf:type owl:Class ;
+                      rdfs:subClassOf sar:PreventiveMeasure .
+
+
+###  http://www.semanticweb.org/sar/ontology#Equipment
+sar:Equipment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#FireCause
+sar:FireCause rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#FireImpact
+sar:FireImpact rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#FireIncident
+sar:FireIncident rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Firebreak
+sar:Firebreak rdf:type owl:Class ;
+              rdfs:subClassOf sar:PreventiveMeasure .
+
+
+###  http://www.semanticweb.org/sar/ontology#Firefighter
+sar:Firefighter rdf:type owl:Class ;
+                rdfs:subClassOf sar:HumanResource .
+
+
+###  http://www.semanticweb.org/sar/ontology#FirefightingAircraft
+sar:FirefightingAircraft rdf:type owl:Class ;
+                         rdfs:subClassOf sar:Vehicle .
+
+
+###  http://www.semanticweb.org/sar/ontology#Habitat
+sar:Habitat rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#HumanResource
+sar:HumanResource rdf:type owl:Class ;
+                  rdfs:subClassOf sar:Resource .
+
+
+###  http://www.semanticweb.org/sar/ontology#Location
+sar:Location rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#MentalHealthImpact
+sar:MentalHealthImpact rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Mission
+sar:Mission rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Natural
+sar:Natural rdf:type owl:Class ;
+            rdfs:subClassOf sar:FireCause .
+
+
+###  http://www.semanticweb.org/sar/ontology#Observation
+sar:Observation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Person
+sar:Person rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#PreventiveMeasure
+sar:PreventiveMeasure rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Resource
+sar:Resource rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#ResponseForce
+sar:ResponseForce rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Service
+sar:Service rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Species
+sar:Species rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#TemporalData
+sar:TemporalData rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/sar/ontology#Tool
+sar:Tool rdf:type owl:Class ;
+         rdfs:subClassOf sar:Resource .
+
+
+###  http://www.semanticweb.org/sar/ontology#Vehicle
+sar:Vehicle rdf:type owl:Class ;
+            rdfs:subClassOf sar:Resource .
+
+
+###  http://www.semanticweb.org/sar/ontology#Volunteer
+sar:Volunteer rdf:type owl:Class ;
+              rdfs:subClassOf sar:HumanResource .
+
+
+###  http://www.semanticweb.org/sar/ontology#WeatherCondition
+sar:WeatherCondition rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

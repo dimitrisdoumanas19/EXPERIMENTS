@@ -1,0 +1,1490 @@
+@prefix : <http://www.semanticweb.org/certh/safers#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/certh/safers> .
+
+<http://www.semanticweb.org/certh/safers> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ontologydesignpatterns.org/opla-sd#entityPosition
+<http://ontologydesignpatterns.org/opla-sd#entityPosition> rdf:type owl:AnnotationProperty .
+
+
+###  http://ontologydesignpatterns.org/opla-sd#entityPositionX
+<http://ontologydesignpatterns.org/opla-sd#entityPositionX> rdf:type owl:AnnotationProperty .
+
+
+###  http://ontologydesignpatterns.org/opla-sd#entityPositionY
+<http://ontologydesignpatterns.org/opla-sd#entityPositionY> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/certh/safersactivates
+<http://www.semanticweb.org/certh/safersactivates> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                               <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                   rdfs:range <http://www.semanticweb.org/certh/safersCommunication> ,
+                                                              <http://www.semanticweb.org/certh/safersMission> .
+
+
+###  http://www.semanticweb.org/certh/safersbelongTo
+<http://www.semanticweb.org/certh/safersbelongTo> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <http://www.semanticweb.org/certh/safersVehicle> ;
+                                                  rdfs:range <http://www.semanticweb.org/certh/safersDepartment> .
+
+
+###  http://www.semanticweb.org/certh/saferscontainsDetection
+<http://www.semanticweb.org/certh/saferscontainsDetection> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersDetection> .
+
+
+###  http://www.semanticweb.org/certh/saferscontainsMediaItem
+<http://www.semanticweb.org/certh/saferscontainsMediaItem> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersMediaItem> .
+
+
+###  http://www.semanticweb.org/certh/safersderivedFrom
+<http://www.semanticweb.org/certh/safersderivedFrom> rdf:type owl:ObjectProperty ,
+                                                              owl:TransitiveProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersIncident> .
+
+
+###  http://www.semanticweb.org/certh/safersdetectsIncident
+<http://www.semanticweb.org/certh/safersdetectsIncident> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/certh/safersObservation> ;
+                                                         rdfs:range <http://www.semanticweb.org/certh/safersIncident> .
+
+
+###  http://www.semanticweb.org/certh/safersenables
+<http://www.semanticweb.org/certh/safersenables> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                 rdfs:range <http://www.semanticweb.org/certh/safersMission> .
+
+
+###  http://www.semanticweb.org/certh/safershasAffected
+<http://www.semanticweb.org/certh/safershasAffected> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersHighlyVulnerableObject> .
+
+
+###  http://www.semanticweb.org/certh/safershasAnomaly
+<http://www.semanticweb.org/certh/safershasAnomaly> rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain <http://www.semanticweb.org/certh/safersPoint> ;
+                                                    rdfs:range <http://www.semanticweb.org/certh/safersAnomaly> .
+
+
+###  http://www.semanticweb.org/certh/safershasClassification
+<http://www.semanticweb.org/certh/safershasClassification> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersDetection> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersClassification> .
+
+
+###  http://www.semanticweb.org/certh/safershasFireImpact
+<http://www.semanticweb.org/certh/safershasFireImpact> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                       rdfs:range <http://www.semanticweb.org/certh/safersImpact> .
+
+
+###  http://www.semanticweb.org/certh/safershasFireLocation
+<http://www.semanticweb.org/certh/safershasFireLocation> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                         rdfs:range <http://www.semanticweb.org/certh/safersLocation> ;
+                                                         rdfs:comment "Represents the location where a fire disaster takes place." .
+
+
+###  http://www.semanticweb.org/certh/safershasFireWeatherCondition
+<http://www.semanticweb.org/certh/safershasFireWeatherCondition> rdf:type owl:ObjectProperty ;
+                                                                 rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                                 rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasForeCastWeatherParameter
+<http://www.semanticweb.org/certh/safershasForeCastWeatherParameter> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:domain <http://www.semanticweb.org/certh/safersWeatherForecast> ;
+                                                                     rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasGeometry
+<http://www.semanticweb.org/certh/safershasGeometry> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersPoint> .
+
+
+###  http://www.semanticweb.org/certh/safershasHumidity
+<http://www.semanticweb.org/certh/safershasHumidity> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersHumidity> .
+
+
+###  http://www.semanticweb.org/certh/safershasImpactType
+<http://www.semanticweb.org/certh/safershasImpactType> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersImpact> ;
+                                                       rdfs:range <http://www.semanticweb.org/certh/safersImpactType> .
+
+
+###  http://www.semanticweb.org/certh/safershasIncidentImpact
+<http://www.semanticweb.org/certh/safershasIncidentImpact> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersImpact> .
+
+
+###  http://www.semanticweb.org/certh/safershasIncidentLocation
+<http://www.semanticweb.org/certh/safershasIncidentLocation> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                             rdfs:range <http://www.semanticweb.org/certh/safersLocation> ;
+                                                             rdfs:comment "Represents the location where an incident occurs." .
+
+
+###  http://www.semanticweb.org/certh/safershasIncidentType
+<http://www.semanticweb.org/certh/safershasIncidentType> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                         rdfs:range <http://www.semanticweb.org/certh/safersIncidentType> .
+
+
+###  http://www.semanticweb.org/certh/safershasLocation
+<http://www.semanticweb.org/certh/safershasLocation> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                                 <http://www.semanticweb.org/certh/safersPoint> ,
+                                                                 <http://www.semanticweb.org/certh/safersRecommendation> ,
+                                                                 <http://www.semanticweb.org/certh/safersReport> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersLocation> .
+
+
+###  http://www.semanticweb.org/certh/safershasLocationWeatherCondition
+<http://www.semanticweb.org/certh/safershasLocationWeatherCondition> rdf:type owl:ObjectProperty ;
+                                                                     rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                                     rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasLocationWeatherForecast
+<http://www.semanticweb.org/certh/safershasLocationWeatherForecast> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                                    rdfs:range <http://www.semanticweb.org/certh/safersWeatherForecast> .
+
+
+###  http://www.semanticweb.org/certh/safershasMediaLocation
+<http://www.semanticweb.org/certh/safershasMediaLocation> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                                          rdfs:range <http://www.semanticweb.org/certh/safersLocation> .
+
+
+###  http://www.semanticweb.org/certh/safershasMediaURI
+<http://www.semanticweb.org/certh/safershasMediaURI> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersReport> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersMediaURIs> .
+
+
+###  http://www.semanticweb.org/certh/safershasMeteorologyClimate
+<http://www.semanticweb.org/certh/safershasMeteorologyClimate> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/certh/safersPhysicalEnvironment> ;
+                                                               rdfs:range <http://www.semanticweb.org/certh/safersMetereologyClimate> .
+
+
+###  http://www.semanticweb.org/certh/safershasMeterologyWeatherCondition
+<http://www.semanticweb.org/certh/safershasMeterologyWeatherCondition> rdf:type owl:ObjectProperty ;
+                                                                       rdfs:domain <http://www.semanticweb.org/certh/safersMetereologyClimate> ;
+                                                                       rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasMission
+<http://www.semanticweb.org/certh/safershasMission> rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                    rdfs:range <http://www.semanticweb.org/certh/safersMission> .
+
+
+###  http://www.semanticweb.org/certh/safershasPrecipitation
+<http://www.semanticweb.org/certh/safershasPrecipitation> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                          rdfs:range <http://www.semanticweb.org/certh/safersPrecipitation> .
+
+
+###  http://www.semanticweb.org/certh/safershasRelatedIncident
+<http://www.semanticweb.org/certh/safershasRelatedIncident> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                            rdfs:range <http://www.semanticweb.org/certh/safersIncident> .
+
+
+###  http://www.semanticweb.org/certh/safershasReport
+<http://www.semanticweb.org/certh/safershasReport> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                   rdfs:range <http://www.semanticweb.org/certh/safersReport> .
+
+
+###  http://www.semanticweb.org/certh/safershasStakeholderLocation
+<http://www.semanticweb.org/certh/safershasStakeholderLocation> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                                rdfs:range <http://www.semanticweb.org/certh/safersLocation> .
+
+
+###  http://www.semanticweb.org/certh/safershasTemperature
+<http://www.semanticweb.org/certh/safershasTemperature> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                        rdfs:range <http://www.semanticweb.org/certh/safersTemperature> .
+
+
+###  http://www.semanticweb.org/certh/safershasTopography
+<http://www.semanticweb.org/certh/safershasTopography> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersPhysicalEnvironment> ;
+                                                       rdfs:range <http://www.semanticweb.org/certh/safersTopography> .
+
+
+###  http://www.semanticweb.org/certh/safershasTopographyWeatherCondition
+<http://www.semanticweb.org/certh/safershasTopographyWeatherCondition> rdf:type owl:ObjectProperty ;
+                                                                       rdfs:domain <http://www.semanticweb.org/certh/safersTopography> ;
+                                                                       rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasVegetation
+<http://www.semanticweb.org/certh/safershasVegetation> rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersPhysicalEnvironment> ;
+                                                       rdfs:range <http://www.semanticweb.org/certh/safersVegetation> .
+
+
+###  http://www.semanticweb.org/certh/safershasVegetationWeatherCondition
+<http://www.semanticweb.org/certh/safershasVegetationWeatherCondition> rdf:type owl:ObjectProperty ;
+                                                                       rdfs:domain <http://www.semanticweb.org/certh/safersVegetation> ;
+                                                                       rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasWeatherConditionParameter
+<http://www.semanticweb.org/certh/safershasWeatherConditionParameter> rdf:type owl:ObjectProperty ;
+                                                                      rdfs:domain <http://www.semanticweb.org/certh/safersPoint> ;
+                                                                      rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/safershasWeatherForecast
+<http://www.semanticweb.org/certh/safershasWeatherForecast> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/certh/safersPoint> ;
+                                                            rdfs:range <http://www.semanticweb.org/certh/safersWeatherForecast> .
+
+
+###  http://www.semanticweb.org/certh/safershasWindSpeed
+<http://www.semanticweb.org/certh/safershasWindSpeed> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ;
+                                                      rdfs:range <http://www.semanticweb.org/certh/safersWindSpeed> .
+
+
+###  http://www.semanticweb.org/certh/safershazard
+<http://www.semanticweb.org/certh/safershazard> rdf:type owl:ObjectProperty ;
+                                                rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                rdfs:range <http://www.semanticweb.org/certh/safersPhysicalEnvironment> .
+
+
+###  http://www.semanticweb.org/certh/safersleads
+<http://www.semanticweb.org/certh/safersleads> rdf:type owl:ObjectProperty ;
+                                               rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                               rdfs:range <http://www.semanticweb.org/certh/safersTeam> .
+
+
+###  http://www.semanticweb.org/certh/safersleadsTo
+<http://www.semanticweb.org/certh/safersleadsTo> rdf:type owl:ObjectProperty ,
+                                                          owl:SymmetricProperty ;
+                                                 rdfs:domain <http://www.semanticweb.org/certh/safersAnomaly> ,
+                                                             <http://www.semanticweb.org/certh/safersFire> ;
+                                                 rdfs:range <http://www.semanticweb.org/certh/safersFire> .
+
+
+###  http://www.semanticweb.org/certh/safersmadeBySatellite
+<http://www.semanticweb.org/certh/safersmadeBySatellite> rdf:type owl:ObjectProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/certh/safersObservation> ;
+                                                         rdfs:range <http://www.semanticweb.org/certh/safersSatellite> .
+
+
+###  http://www.semanticweb.org/certh/safersmadeBySensor
+<http://www.semanticweb.org/certh/safersmadeBySensor> rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/certh/safersObservation> ;
+                                                      rdfs:range <http://www.semanticweb.org/certh/safersSensor> .
+
+
+###  http://www.semanticweb.org/certh/safersproduces
+<http://www.semanticweb.org/certh/safersproduces> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                  rdfs:range <http://www.semanticweb.org/certh/safersAlert> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesIncidentData
+<http://www.semanticweb.org/certh/safersproducesIncidentData> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                              rdfs:range <http://www.semanticweb.org/certh/safersDataset> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesMap
+<http://www.semanticweb.org/certh/safersproducesMap> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                     rdfs:range <http://www.semanticweb.org/certh/safersMap> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesMediaData
+<http://www.semanticweb.org/certh/safersproducesMediaData> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersDataset> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesSatelliteData
+<http://www.semanticweb.org/certh/safersproducesSatelliteData> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/certh/safersSatellite> ;
+                                                               rdfs:range <http://www.semanticweb.org/certh/safersDataset> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesSensorData
+<http://www.semanticweb.org/certh/safersproducesSensorData> rdf:type owl:ObjectProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/certh/safersSensor> ;
+                                                            rdfs:range <http://www.semanticweb.org/certh/safersDataset> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesTopographyData
+<http://www.semanticweb.org/certh/safersproducesTopographyData> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/certh/safersTopography> ;
+                                                                rdfs:range <http://www.semanticweb.org/certh/safersDataset> .
+
+
+###  http://www.semanticweb.org/certh/safersproducesVegetationData
+<http://www.semanticweb.org/certh/safersproducesVegetationData> rdf:type owl:ObjectProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/certh/safersVegetation> ;
+                                                                rdfs:range <http://www.semanticweb.org/certh/safersDataset> .
+
+
+###  http://www.semanticweb.org/certh/saferspublishes
+<http://www.semanticweb.org/certh/saferspublishes> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                   rdfs:range <http://www.semanticweb.org/certh/safersMediaItem> .
+
+
+###  http://www.semanticweb.org/certh/safersrefersToIncident
+<http://www.semanticweb.org/certh/safersrefersToIncident> rdf:type owl:ObjectProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                                          rdfs:range <http://www.semanticweb.org/certh/safersIncident> .
+
+
+###  http://www.semanticweb.org/certh/safersrelatesToIncident
+<http://www.semanticweb.org/certh/safersrelatesToIncident> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersMission> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersIncident> .
+
+
+###  http://www.semanticweb.org/certh/saferssatelliteObserves
+<http://www.semanticweb.org/certh/saferssatelliteObserves> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersSatellite> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/saferssensorObserves
+<http://www.semanticweb.org/certh/saferssensorObserves> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/certh/safersSensor> ;
+                                                        rdfs:range <http://www.semanticweb.org/certh/safersWeatherConditionParameter> .
+
+
+###  http://www.semanticweb.org/certh/saferstravelWith
+<http://www.semanticweb.org/certh/saferstravelWith> rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                    rdfs:range <http://www.semanticweb.org/certh/safersVehicle> .
+
+
+###  http://www.semanticweb.org/certh/safersworkForDepartment
+<http://www.semanticweb.org/certh/safersworkForDepartment> rdf:type owl:ObjectProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                           rdfs:range <http://www.semanticweb.org/certh/safersDepartment> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/certh/saferscontainsInformation
+<http://www.semanticweb.org/certh/saferscontainsInformation> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasCategory
+<http://www.semanticweb.org/certh/safershasCategory> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                                 <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasCertainty
+<http://www.semanticweb.org/certh/safershasCertainty> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ;
+                                                      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasCommunicationEnd
+<http://www.semanticweb.org/certh/safershasCommunicationEnd> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/certh/safersCommunication> ;
+                                                             rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasCommunicationStart
+<http://www.semanticweb.org/certh/safershasCommunicationStart> rdf:type owl:DatatypeProperty ;
+                                                               rdfs:domain <http://www.semanticweb.org/certh/safersCommunication> ;
+                                                               rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasDatasetDateTime
+<http://www.semanticweb.org/certh/safershasDatasetDateTime> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                            rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasDatasource
+<http://www.semanticweb.org/certh/safershasDatasource> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersDataset> ;
+                                                       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasDescription
+<http://www.semanticweb.org/certh/safershasDescription> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                                    <http://www.semanticweb.org/certh/safersCommunication> ,
+                                                                    <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasDroughtAnomaly
+<http://www.semanticweb.org/certh/safershasDroughtAnomaly> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:subPropertyOf owl:topDataProperty ;
+                                                           rdfs:domain <http://www.semanticweb.org/certh/safersDroughtAnomaly> ,
+                                                                       <http://www.semanticweb.org/certh/safersPoint> ;
+                                                           rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safershasDuffMoistureAnomaly
+<http://www.semanticweb.org/certh/safershasDuffMoistureAnomaly> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/certh/safersDuffMoistureAnomaly> ,
+                                                                            <http://www.semanticweb.org/certh/safersPoint> ;
+                                                                rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safershasFWIAnomaly
+<http://www.semanticweb.org/certh/safershasFWIAnomaly> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersFWIAnomaly> ,
+                                                                   <http://www.semanticweb.org/certh/safersPoint> ;
+                                                       rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safershasFineFuelMoistureAnomaly
+<http://www.semanticweb.org/certh/safershasFineFuelMoistureAnomaly> rdf:type owl:DatatypeProperty ;
+                                                                    rdfs:domain <http://www.semanticweb.org/certh/safersFineFuelMoistureAnomaly> ,
+                                                                                <http://www.semanticweb.org/certh/safersPoint> ;
+                                                                    rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safershasFireEnd
+<http://www.semanticweb.org/certh/safershasFireEnd> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                    rdfs:range xsd:dateTime ;
+                                                    rdfs:comment "Indicates the end of the fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safershasFireStart
+<http://www.semanticweb.org/certh/safershasFireStart> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/certh/safersFire> ;
+                                                      rdfs:range xsd:dateTime ;
+                                                      rdfs:comment "Indicates the start of the fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safershasIncidentPriority
+<http://www.semanticweb.org/certh/safershasIncidentPriority> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                             rdfs:range xsd:string ;
+                                                             rdfs:comment "Indicates the priority of the incident. Incidents involving humans in danger are of high priority." .
+
+
+###  http://www.semanticweb.org/certh/safershasIncidentSeverity
+<http://www.semanticweb.org/certh/safershasIncidentSeverity> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:domain <http://www.semanticweb.org/certh/safersIncident> ;
+                                                             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasInformation
+<http://www.semanticweb.org/certh/safershasInformation> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasLatitude
+<http://www.semanticweb.org/certh/safershasLatitude> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ,
+                                                                 <http://www.semanticweb.org/certh/safersPoint> ;
+                                                     rdfs:range xsd:float ;
+                                                     rdfs:comment "Geographic latitude coordinates of a location." .
+
+
+###  http://www.semanticweb.org/certh/safershasLocationID
+<http://www.semanticweb.org/certh/safershasLocationID> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersPoint> ;
+                                                       rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/certh/safershasLongitude
+<http://www.semanticweb.org/certh/safershasLongitude> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/certh/safersLocation> ,
+                                                                  <http://www.semanticweb.org/certh/safersPoint> ;
+                                                      rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/certh/safershasMediaDateTime
+<http://www.semanticweb.org/certh/safershasMediaDateTime> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                                          rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasMediaSource
+<http://www.semanticweb.org/certh/safershasMediaSource> rdf:type owl:DatatypeProperty ;
+                                                        rdfs:domain <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                                        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasMissionEnd
+<http://www.semanticweb.org/certh/safershasMissionEnd> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://www.semanticweb.org/certh/safersMission> ;
+                                                       rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasMissionPriority
+<http://www.semanticweb.org/certh/safershasMissionPriority> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain <http://www.semanticweb.org/certh/safersMission> ;
+                                                            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasMissionStart
+<http://www.semanticweb.org/certh/safershasMissionStart> rdf:type owl:DatatypeProperty ;
+                                                         rdfs:domain <http://www.semanticweb.org/certh/safersMission> ;
+                                                         rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasMissionStatus
+<http://www.semanticweb.org/certh/safershasMissionStatus> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/certh/safersMission> ;
+                                                          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasObservationDateTime
+<http://www.semanticweb.org/certh/safershasObservationDateTime> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/certh/safersObservation> ;
+                                                                rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasObservationSource
+<http://www.semanticweb.org/certh/safershasObservationSource> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/certh/safersObservation> ;
+                                                              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasRegion
+<http://www.semanticweb.org/certh/safershasRegion> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/certh/safersPoint> ;
+                                                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasScope
+<http://www.semanticweb.org/certh/safershasScope> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                              <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasSeverity
+<http://www.semanticweb.org/certh/safershasSeverity> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ;
+                                                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasSource
+<http://www.semanticweb.org/certh/safershasSource> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                               <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasStakeholderActivity
+<http://www.semanticweb.org/certh/safershasStakeholderActivity> rdf:type owl:DatatypeProperty ;
+                                                                rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasStakeholderStatus
+<http://www.semanticweb.org/certh/safershasStakeholderStatus> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasStatus
+<http://www.semanticweb.org/certh/safershasStatus> rdf:type owl:DatatypeProperty ;
+                                                   rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                               <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasTimestamp
+<http://www.semanticweb.org/certh/safershasTimestamp> rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ,
+                                                                  <http://www.semanticweb.org/certh/safersRecommendation> ;
+                                                      rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/certh/safershasUrgency
+<http://www.semanticweb.org/certh/safershasUrgency> rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain <http://www.semanticweb.org/certh/safersAlert> ;
+                                                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasValue
+<http://www.semanticweb.org/certh/safershasValue> rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain <http://www.semanticweb.org/certh/safersDroughtAnomaly> ,
+                                                              <http://www.semanticweb.org/certh/safersDuffMoistureAnomaly> ,
+                                                              <http://www.semanticweb.org/certh/safersFWI> ,
+                                                              <http://www.semanticweb.org/certh/safersFWIAnomaly> ,
+                                                              <http://www.semanticweb.org/certh/safersFineFuelMoistureAnomaly> ,
+                                                              <http://www.semanticweb.org/certh/safersHumidity> ,
+                                                              <http://www.semanticweb.org/certh/safersPrecipitation> ,
+                                                              <http://www.semanticweb.org/certh/safersTemperature> ,
+                                                              <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ,
+                                                              <http://www.semanticweb.org/certh/safersWindSpeed> ;
+                                                  rdfs:range xsd:double .
+
+
+###  http://www.semanticweb.org/certh/safershasVehicleStatus
+<http://www.semanticweb.org/certh/safershasVehicleStatus> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain <http://www.semanticweb.org/certh/safersVehicle> ;
+                                                          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasVulnerableObjectStatus
+<http://www.semanticweb.org/certh/safershasVulnerableObjectStatus> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:domain <http://www.semanticweb.org/certh/safersHighlyVulnerableObject> ;
+                                                                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/certh/safershasWeatherConditionTimestamp
+<http://www.semanticweb.org/certh/safershasWeatherConditionTimestamp> rdf:type owl:DatatypeProperty ;
+                                                                      rdfs:domain <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                                      rdfs:range xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/certh/safersAirQuality
+<http://www.semanticweb.org/certh/safersAirQuality> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/certh/safersObservation> ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "137.16704273359179"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "100.84183053971893"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] .
+
+
+###  http://www.semanticweb.org/certh/safersAircraft
+<http://www.semanticweb.org/certh/safersAircraft> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.semanticweb.org/certh/safersVehicle> ;
+                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "171.506732331675"^^xsd:double ;
+                                                                                                               <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "193.02444865005268"^^xsd:double ;
+                                                                                                               rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                             ] ;
+                                                  rdfs:comment "Represents any type of aircraft." .
+
+
+###  http://www.semanticweb.org/certh/safersAlert
+<http://www.semanticweb.org/certh/safersAlert> rdf:type owl:Class ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "104.08656896202363"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "43.11391209728185"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] ;
+                                               rdfs:comment "Represents alerts" .
+
+
+###  http://www.semanticweb.org/certh/safersAnimal
+<http://www.semanticweb.org/certh/safersAnimal> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.semanticweb.org/certh/safersLivingBeing> ;
+                                                <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "191.46758320282598"^^xsd:double ;
+                                                                                                             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "270.0832612356954"^^xsd:double ;
+                                                                                                             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                           ] ;
+                                                rdfs:comment "Represents animals in danger during a fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safersAnomaly
+<http://www.semanticweb.org/certh/safersAnomaly> rdf:type owl:Class ;
+                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "93.51696595819975"^^xsd:double ;
+                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "38.08252042294275"^^xsd:double ;
+                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                            ] ;
+                                                 rdfs:comment "Represents Anomalies" .
+
+
+###  http://www.semanticweb.org/certh/safersAsset
+<http://www.semanticweb.org/certh/safersAsset> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/certh/safersHighlyVulnerableObject> ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "293.8503300353739"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "297.90552880784725"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] ;
+                                               rdfs:comment "Any non-living item of interest." .
+
+
+###  http://www.semanticweb.org/certh/safersAudio
+<http://www.semanticweb.org/certh/safersAudio> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "17.961977405819542"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "188.09090790795085"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] .
+
+
+###  http://www.semanticweb.org/certh/safersBulldozer
+<http://www.semanticweb.org/certh/safersBulldozer> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.semanticweb.org/certh/safersVehicle> ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "144.7722916516459"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "76.50310717902235"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] .
+
+
+###  http://www.semanticweb.org/certh/safersCar
+<http://www.semanticweb.org/certh/safersCar> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.semanticweb.org/certh/safersVehicle> ;
+                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "254.13764004223228"^^xsd:double ;
+                                                                                                          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "129.42742411677386"^^xsd:double ;
+                                                                                                          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                        ] ;
+                                             rdfs:comment "Represents any type of car." .
+
+
+###  http://www.semanticweb.org/certh/safersCitizen
+<http://www.semanticweb.org/certh/safersCitizen> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "215.67533253714944"^^xsd:double ;
+                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "169.60369720473912"^^xsd:double ;
+                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                            ] .
+
+
+###  http://www.semanticweb.org/certh/safersCivilProtection
+<http://www.semanticweb.org/certh/safersCivilProtection> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                         <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "108.91308064918948"^^xsd:double ;
+                                                                                                                      <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "111.750039681464"^^xsd:double ;
+                                                                                                                      rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                    ] .
+
+
+###  http://www.semanticweb.org/certh/safersClassification
+<http://www.semanticweb.org/certh/safersClassification> rdf:type owl:Class ;
+                                                        <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "253.1992500474935"^^xsd:double ;
+                                                                                                                     <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "82.53861021783939"^^xsd:double ;
+                                                                                                                     rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                   ] ;
+                                                        rdfs:comment "Respresents Classification" .
+
+
+###  http://www.semanticweb.org/certh/safersCommunication
+<http://www.semanticweb.org/certh/safersCommunication> rdf:type owl:Class ;
+                                                       <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "155.94409516042634"^^xsd:double ;
+                                                                                                                    <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "177.63716625437522"^^xsd:double ;
+                                                                                                                    rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                  ] ;
+                                                       rdfs:comment "Represents Communication" .
+
+
+###  http://www.semanticweb.org/certh/safersDataset
+<http://www.semanticweb.org/certh/safersDataset> rdf:type owl:Class ;
+                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "286.41196403105937"^^xsd:double ;
+                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "61.00867034993894"^^xsd:double ;
+                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                            ] ;
+                                                 rdfs:comment "Represents all relevant information about the media item, the observation and sensor items, as well information from physical environment regarding the topography and the vegetation" .
+
+
+###  http://www.semanticweb.org/certh/safersDepartment
+<http://www.semanticweb.org/certh/safersDepartment> rdf:type owl:Class ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "155.47005849407205"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "177.01904826745042"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] ;
+                                                    rdfs:comment "Represents the department where stakeholder works." .
+
+
+###  http://www.semanticweb.org/certh/safersDetection
+<http://www.semanticweb.org/certh/safersDetection> rdf:type owl:Class ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "158.36555380783727"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "40.06776317465653"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] ;
+                                                   rdfs:comment "Represents detections in a dataset. Example A person trapped in the fire." .
+
+
+###  http://www.semanticweb.org/certh/safersDropWaterMission
+<http://www.semanticweb.org/certh/safersDropWaterMission> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                          <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "139.54393280726106"^^xsd:double ;
+                                                                                                                       <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "75.16826575120133"^^xsd:double ;
+                                                                                                                       rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                     ] ;
+                                                          rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for dropping water." .
+
+
+###  http://www.semanticweb.org/certh/safersDroughtAnomaly
+<http://www.semanticweb.org/certh/safersDroughtAnomaly> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.semanticweb.org/certh/safersAnomaly> ;
+                                                        <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "126.68035401335534"^^xsd:double ;
+                                                                                                                     <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "102.92244173682735"^^xsd:double ;
+                                                                                                                     rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                   ] ;
+                                                        rdfs:comment "Respresents Drought Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safersDuffMoistureAnomaly
+<http://www.semanticweb.org/certh/safersDuffMoistureAnomaly> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://www.semanticweb.org/certh/safersAnomaly> ;
+                                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "153.6603462642278"^^xsd:double ;
+                                                                                                                          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "67.82220406805196"^^xsd:double ;
+                                                                                                                          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                        ] ;
+                                                             rdfs:comment "Respresents Duff Moisture Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safersEvacuationMission
+<http://www.semanticweb.org/certh/safersEvacuationMission> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                           <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "255.50245288984115"^^xsd:double ;
+                                                                                                                        <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "114.03219590770907"^^xsd:double ;
+                                                                                                                        rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                      ] ;
+                                                           rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for evacuation." .
+
+
+###  http://www.semanticweb.org/certh/safersFWI
+<http://www.semanticweb.org/certh/safersFWI> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "249.59376367679874"^^xsd:double ;
+                                                                                                          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "102.0578465780189"^^xsd:double ;
+                                                                                                          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                        ] ;
+                                             rdfs:comment "Represents FWI variable which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersFWIAnomaly
+<http://www.semanticweb.org/certh/safersFWIAnomaly> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/certh/safersAnomaly> ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "114.2896920576049"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "4.6243004394077225"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] ;
+                                                    rdfs:comment "Respresents FWI Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safersFineFuelMoistureAnomaly
+<http://www.semanticweb.org/certh/safersFineFuelMoistureAnomaly> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://www.semanticweb.org/certh/safersAnomaly> ;
+                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "197.93349819215283"^^xsd:double ;
+                                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "290.5578086467373"^^xsd:double ;
+                                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                            ] ;
+                                                                 rdfs:comment "Respresents Fine Fuel Moisture Anomaly" .
+
+
+###  http://www.semanticweb.org/certh/safersFire
+<http://www.semanticweb.org/certh/safersFire> rdf:type owl:Class ;
+                                              <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "64.54443289214969"^^xsd:double ;
+                                                                                                           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "118.2461885066109"^^xsd:double ;
+                                                                                                           rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                         ] ;
+                                              rdfs:comment "Fire is an uncontrolled burning that has the potential to cause physical damage on human life, health, property or ecology.  this class represents the various types of fires, e.g. forest fire, land fire or urban fire, etc." .
+
+
+###  http://www.semanticweb.org/certh/safersFirebreakMission
+<http://www.semanticweb.org/certh/safersFirebreakMission> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                          <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "298.8940389159915"^^xsd:double ;
+                                                                                                                       <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "99.45415948255165"^^xsd:double ;
+                                                                                                                       rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                     ] ;
+                                                          rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for using or making an obstacle to the spread of fire, such as a strip of open space in a forest." .
+
+
+###  http://www.semanticweb.org/certh/safersFirefighter
+<http://www.semanticweb.org/certh/safersFirefighter> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                     <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "157.17623796348093"^^xsd:double ;
+                                                                                                                  <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "158.3214282846506"^^xsd:double ;
+                                                                                                                  rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                ] .
+
+
+###  http://www.semanticweb.org/certh/safersForestEngine
+<http://www.semanticweb.org/certh/safersForestEngine> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.semanticweb.org/certh/safersVehicle> ;
+                                                      <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "83.03771209954503"^^xsd:double ;
+                                                                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "281.10596757532875"^^xsd:double ;
+                                                                                                                   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                 ] .
+
+
+###  http://www.semanticweb.org/certh/safersForestFire
+<http://www.semanticweb.org/certh/safersForestFire> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://www.semanticweb.org/certh/safersFire> ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "128.17445185862144"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "191.62780408134498"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] ;
+                                                    rdfs:comment "Respresents Forest Fire" .
+
+
+###  http://www.semanticweb.org/certh/safersFuelBreakMission
+<http://www.semanticweb.org/certh/safersFuelBreakMission> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                          <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "271.3645904264458"^^xsd:double ;
+                                                                                                                       <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "268.41230810837084"^^xsd:double ;
+                                                                                                                       rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                     ] ;
+                                                          rdfs:comment "Represent a fuel break mission." .
+
+
+###  http://www.semanticweb.org/certh/safersGroundSituation
+<http://www.semanticweb.org/certh/safersGroundSituation> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.semanticweb.org/certh/safersObservation> ;
+                                                         <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "151.86826389802664"^^xsd:double ;
+                                                                                                                      <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "7.956417505311245"^^xsd:double ;
+                                                                                                                      rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                    ] .
+
+
+###  http://www.semanticweb.org/certh/safersHighlyVulnerableObject
+<http://www.semanticweb.org/certh/safersHighlyVulnerableObject> rdf:type owl:Class ;
+                                                                <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "299.6202569167896"^^xsd:double ;
+                                                                                                                             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "39.62465422099397"^^xsd:double ;
+                                                                                                                             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                           ] ;
+                                                                rdfs:comment """High possibility of loss resulting from the occurrence of the phenomenon.
+Any living being or object that needs to be protected from hazards.""" .
+
+
+###  http://www.semanticweb.org/certh/safersHuman
+<http://www.semanticweb.org/certh/safersHuman> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/certh/safersLivingBeing> ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "299.53169912128266"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "183.49043022669295"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] ;
+                                               rdfs:comment "Represents human beings in danger." .
+
+
+###  http://www.semanticweb.org/certh/safersHumidity
+<http://www.semanticweb.org/certh/safersHumidity> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "49.35364441770492"^^xsd:double ;
+                                                                                                               <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "168.66150273992199"^^xsd:double ;
+                                                                                                               rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                             ] ;
+                                                  rdfs:comment "Represents humidity which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersImage
+<http://www.semanticweb.org/certh/safersImage> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "16.35480156818302"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "276.8705243259029"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] .
+
+
+###  http://www.semanticweb.org/certh/safersImpact
+<http://www.semanticweb.org/certh/safersImpact> rdf:type owl:Class ;
+                                                <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "177.05635071818378"^^xsd:double ;
+                                                                                                             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "220.57030721167112"^^xsd:double ;
+                                                                                                             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                           ] ;
+                                                rdfs:comment "Represents the impact of wildfire disasters and incidents." .
+
+
+###  http://www.semanticweb.org/certh/safersImpactType
+<http://www.semanticweb.org/certh/safersImpactType> rdf:type owl:Class ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "56.37201647994484"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "298.2614640572663"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] ;
+                                                    rdfs:comment "Represents the various types of impacts.e.g. injuries, damage to properties, fire propagation etc." .
+
+
+###  http://www.semanticweb.org/certh/safersIncident
+<http://www.semanticweb.org/certh/safersIncident> rdf:type owl:Class ;
+                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "115.153374836196"^^xsd:double ;
+                                                                                                               <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "128.16111085751888"^^xsd:double ;
+                                                                                                               rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                             ] ;
+                                                  rdfs:comment "Represents the various incidents taking place during a wildfire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safersIncidentType
+<http://www.semanticweb.org/certh/safersIncidentType> rdf:type owl:Class ;
+                                                      <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "91.01067802796874"^^xsd:double ;
+                                                                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "135.99522936551244"^^xsd:double ;
+                                                                                                                   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                 ] ;
+                                                      rdfs:comment "Represents the various types of incidents, like e.g. burning forest, blocked streets, etc." .
+
+
+###  http://www.semanticweb.org/certh/safersInfrastructure
+<http://www.semanticweb.org/certh/safersInfrastructure> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.semanticweb.org/certh/safersAsset> ;
+                                                        <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "145.77715824537438"^^xsd:double ;
+                                                                                                                     <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "152.78525144709712"^^xsd:double ;
+                                                                                                                     rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                   ] ;
+                                                        rdfs:comment "Represents critical infrastructure that is in danger during a fire disaster." .
+
+
+###  http://www.semanticweb.org/certh/safersLandFire
+<http://www.semanticweb.org/certh/safersLandFire> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.semanticweb.org/certh/safersFire> ;
+                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "202.50923896366288"^^xsd:double ;
+                                                                                                               <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "158.7947986943535"^^xsd:double ;
+                                                                                                               rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                             ] ;
+                                                  rdfs:comment "Respresents Land Fire" .
+
+
+###  http://www.semanticweb.org/certh/safersLivingBeing
+<http://www.semanticweb.org/certh/safersLivingBeing> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/certh/safersHighlyVulnerableObject> ;
+                                                     <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "106.77843593313666"^^xsd:double ;
+                                                                                                                  <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "12.986557731101541"^^xsd:double ;
+                                                                                                                  rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                ] ;
+                                                     rdfs:comment "Any living being that is in danger during a natural disaster." .
+
+
+###  http://www.semanticweb.org/certh/safersLocation
+<http://www.semanticweb.org/certh/safersLocation> rdf:type owl:Class ;
+                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "123.35922066790623"^^xsd:double ;
+                                                                                                               <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "107.05823181978619"^^xsd:double ;
+                                                                                                               rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                             ] ;
+                                                  rdfs:comment "Represents a location (point or area), indicated by latitude and longitude" .
+
+
+###  http://www.semanticweb.org/certh/safersMap
+<http://www.semanticweb.org/certh/safersMap> rdf:type owl:Class ;
+                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "165.4990418804595"^^xsd:double ;
+                                                                                                          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "18.2249746288319"^^xsd:double ;
+                                                                                                          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                        ] ;
+                                             rdfs:comment "Represents early warning and risk maps" .
+
+
+###  http://www.semanticweb.org/certh/safersMediaItem
+<http://www.semanticweb.org/certh/safersMediaItem> rdf:type owl:Class ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "121.1057027928826"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "50.08566588382815"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] ;
+                                                   rdfs:comment "Represents 4 domain specific media items which in SAFERS ontology are: text, images, videos and audio, all of them submitted from stakeholders during the occurrence of the crisis in social media posts or chatbots." .
+
+
+###  http://www.semanticweb.org/certh/safersMediaURIs
+<http://www.semanticweb.org/certh/safersMediaURIs> rdf:type owl:Class ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "231.7950072326226"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "108.59469851446853"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] .
+
+
+###  http://www.semanticweb.org/certh/safersMedicalService
+<http://www.semanticweb.org/certh/safersMedicalService> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                        <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "27.261642269607233"^^xsd:double ;
+                                                                                                                     <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "26.185321265110844"^^xsd:double ;
+                                                                                                                     rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                   ] .
+
+
+###  http://www.semanticweb.org/certh/safersMetereologyClimate
+<http://www.semanticweb.org/certh/safersMetereologyClimate> rdf:type owl:Class ;
+                                                            <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "152.99209944164397"^^xsd:double ;
+                                                                                                                         <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "5.310789191917886"^^xsd:double ;
+                                                                                                                         rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                       ] ;
+                                                            rdfs:comment "Represents meteorology climate of the burned area" .
+
+
+###  http://www.semanticweb.org/certh/safersMission
+<http://www.semanticweb.org/certh/safersMission> rdf:type owl:Class ;
+                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "250.36132105014426"^^xsd:double ;
+                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "234.1781731377364"^^xsd:double ;
+                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                            ] ;
+                                                 rdfs:comment "Represents a mission assigned to a rescue unit during a crisis." .
+
+
+###  http://www.semanticweb.org/certh/safersObservation
+<http://www.semanticweb.org/certh/safersObservation> rdf:type owl:Class ;
+                                                     <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "19.41247502329378"^^xsd:double ;
+                                                                                                                  <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "145.59853926102863"^^xsd:double ;
+                                                                                                                  rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                ] ;
+                                                     rdfs:comment "Represents earth observation data." .
+
+
+###  http://www.semanticweb.org/certh/safersPersonAbleToProvideSupport
+<http://www.semanticweb.org/certh/safersPersonAbleToProvideSupport> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf <http://www.semanticweb.org/certh/safersPublic> ;
+                                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "92.17861347165525"^^xsd:double ;
+                                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "291.66356727787934"^^xsd:double ;
+                                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                               ] .
+
+
+###  http://www.semanticweb.org/certh/safersPersonUnableToProvideSupport
+<http://www.semanticweb.org/certh/safersPersonUnableToProvideSupport> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf <http://www.semanticweb.org/certh/safersPublic> ;
+                                                                      <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "20.82235810530951"^^xsd:double ;
+                                                                                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "47.680793108555044"^^xsd:double ;
+                                                                                                                                   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                                 ] .
+
+
+###  http://www.semanticweb.org/certh/safersPhysicalEnvironment
+<http://www.semanticweb.org/certh/safersPhysicalEnvironment> rdf:type owl:Class ;
+                                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "186.29901552236836"^^xsd:double ;
+                                                                                                                          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "36.37424280416797"^^xsd:double ;
+                                                                                                                          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                        ] ;
+                                                             rdfs:comment "Represents the burned area from the occurred wildfire" .
+
+
+###  http://www.semanticweb.org/certh/safersPoint
+<http://www.semanticweb.org/certh/safersPoint> rdf:type owl:Class ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "192.92026867359598"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "266.96262314764607"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] ;
+                                               rdfs:comment "Respresents Point" .
+
+
+###  http://www.semanticweb.org/certh/safersPolicyMakers
+<http://www.semanticweb.org/certh/safersPolicyMakers> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                      <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "161.53502979305762"^^xsd:double ;
+                                                                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "291.903883999724"^^xsd:double ;
+                                                                                                                   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                 ] .
+
+
+###  http://www.semanticweb.org/certh/safersPrecipitation
+<http://www.semanticweb.org/certh/safersPrecipitation> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                       <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "136.0331878020095"^^xsd:double ;
+                                                                                                                    <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "163.03489070473924"^^xsd:double ;
+                                                                                                                    rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                  ] ;
+                                                       rdfs:comment "Represents precipitation which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersPrescribedBurning
+<http://www.semanticweb.org/certh/safersPrescribedBurning> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                           <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "147.0653966081243"^^xsd:double ;
+                                                                                                                        <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "271.68220663195353"^^xsd:double ;
+                                                                                                                        rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                      ] ;
+                                                           rdfs:comment "Respresents Prescribed Burning" .
+
+
+###  http://www.semanticweb.org/certh/safersProperty
+<http://www.semanticweb.org/certh/safersProperty> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://www.semanticweb.org/certh/safersAsset> ;
+                                                  <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "0.9762870813003064"^^xsd:double ;
+                                                                                                               <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "120.80779242437292"^^xsd:double ;
+                                                                                                               rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                             ] ;
+                                                  rdfs:comment "Represents any type of private property." .
+
+
+###  http://www.semanticweb.org/certh/safersProvidingShelterMission
+<http://www.semanticweb.org/certh/safersProvidingShelterMission> rdf:type owl:Class ;
+                                                                 rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "32.83795895602315"^^xsd:double ;
+                                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "219.76652517560836"^^xsd:double ;
+                                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                            ] ;
+                                                                 rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for providing shelter." .
+
+
+###  http://www.semanticweb.org/certh/safersPublic
+<http://www.semanticweb.org/certh/safersPublic> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "50.088987065366794"^^xsd:double ;
+                                                                                                             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "174.81654273875998"^^xsd:double ;
+                                                                                                             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                           ] .
+
+
+###  http://www.semanticweb.org/certh/safersRecommendation
+<http://www.semanticweb.org/certh/safersRecommendation> rdf:type owl:Class ;
+                                                        <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "109.64537289782605"^^xsd:double ;
+                                                                                                                     <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "245.60923232240202"^^xsd:double ;
+                                                                                                                     rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                   ] ;
+                                                        rdfs:comment "Represents Recommendation" .
+
+
+###  http://www.semanticweb.org/certh/safersReconnaissanceMission
+<http://www.semanticweb.org/certh/safersReconnaissanceMission> rdf:type owl:Class ;
+                                                               rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "181.25871300727354"^^xsd:double ;
+                                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "158.46685145143678"^^xsd:double ;
+                                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                          ] ;
+                                                               rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for reconnaissance survey." .
+
+
+###  http://www.semanticweb.org/certh/safersReport
+<http://www.semanticweb.org/certh/safersReport> rdf:type owl:Class ;
+                                                <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "262.96432156433514"^^xsd:double ;
+                                                                                                             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "43.637882707598294"^^xsd:double ;
+                                                                                                             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                           ] ;
+                                                rdfs:comment "Respresents Report" .
+
+
+###  http://www.semanticweb.org/certh/safersSatellite
+<http://www.semanticweb.org/certh/safersSatellite> rdf:type owl:Class ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "131.77037268789437"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "147.07142537236615"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] ;
+                                                   rdfs:comment "Represents the observations that made by satellite" .
+
+
+###  http://www.semanticweb.org/certh/safersSensor
+<http://www.semanticweb.org/certh/safersSensor> rdf:type owl:Class ;
+                                                <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "58.173041300806396"^^xsd:double ;
+                                                                                                             <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "176.35636232236422"^^xsd:double ;
+                                                                                                             rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                           ] ;
+                                                rdfs:comment "Represents the observations that made by sensors" .
+
+
+###  http://www.semanticweb.org/certh/safersStakeholder
+<http://www.semanticweb.org/certh/safersStakeholder> rdf:type owl:Class ;
+                                                     <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "298.82765493864713"^^xsd:double ;
+                                                                                                                  <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "60.94038589548781"^^xsd:double ;
+                                                                                                                  rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                ] ;
+                                                     rdfs:comment "Represents a Data Management System User." .
+
+
+###  http://www.semanticweb.org/certh/safersTeam
+<http://www.semanticweb.org/certh/safersTeam> rdf:type owl:Class ;
+                                              <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "58.19884036213691"^^xsd:double ;
+                                                                                                           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "182.13662514724143"^^xsd:double ;
+                                                                                                           rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                         ] ;
+                                              rdfs:comment "Represents a team. Stakeholders belong or lead a team." .
+
+
+###  http://www.semanticweb.org/certh/safersTemperature
+<http://www.semanticweb.org/certh/safersTemperature> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                     <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "260.75992538354166"^^xsd:double ;
+                                                                                                                  <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "167.8768449064709"^^xsd:double ;
+                                                                                                                  rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                ] ;
+                                                     rdfs:comment "Represents Temperature which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersText
+<http://www.semanticweb.org/certh/safersText> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                              <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "179.52291989334307"^^xsd:double ;
+                                                                                                           <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "228.84221320898436"^^xsd:double ;
+                                                                                                           rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                         ] .
+
+
+###  http://www.semanticweb.org/certh/safersTopography
+<http://www.semanticweb.org/certh/safersTopography> rdf:type owl:Class ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "112.64101621509148"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "63.448000917750655"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] ;
+                                                    rdfs:comment "Represents topography of  the burned area" .
+
+
+###  http://www.semanticweb.org/certh/safersTrainedVolunteer
+<http://www.semanticweb.org/certh/safersTrainedVolunteer> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://www.semanticweb.org/certh/safersStakeholder> ;
+                                                          <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "143.89041361429187"^^xsd:double ;
+                                                                                                                       <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "267.96516203212434"^^xsd:double ;
+                                                                                                                       rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                     ] .
+
+
+###  http://www.semanticweb.org/certh/safersTrainingMission
+<http://www.semanticweb.org/certh/safersTrainingMission> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                         <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "177.63995643562617"^^xsd:double ;
+                                                                                                                      <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "181.77758834935585"^^xsd:double ;
+                                                                                                                      rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                    ] ;
+                                                         rdfs:comment "Represents a training mission" .
+
+
+###  http://www.semanticweb.org/certh/safersUrbanFire
+<http://www.semanticweb.org/certh/safersUrbanFire> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.semanticweb.org/certh/safersFire> ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "227.33517987087484"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "18.831716574843057"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] ;
+                                                   rdfs:comment "Respresents Urban Fire" .
+
+
+###  http://www.semanticweb.org/certh/safersVegetation
+<http://www.semanticweb.org/certh/safersVegetation> rdf:type owl:Class ;
+                                                    <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "102.24478645535488"^^xsd:double ;
+                                                                                                                 <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "288.1390843501372"^^xsd:double ;
+                                                                                                                 rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                               ] ;
+                                                    rdfs:comment "Represents vegetation of the burned area" .
+
+
+###  http://www.semanticweb.org/certh/safersVehicle
+<http://www.semanticweb.org/certh/safersVehicle> rdf:type owl:Class ;
+                                                 <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "36.55387118507308"^^xsd:double ;
+                                                                                                              <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "244.13621786135914"^^xsd:double ;
+                                                                                                              rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                            ] ;
+                                                 rdfs:comment "Represents any type of vehicle." .
+
+
+###  http://www.semanticweb.org/certh/safersVideo
+<http://www.semanticweb.org/certh/safersVideo> rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.semanticweb.org/certh/safersMediaItem> ;
+                                               <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "139.25193914003134"^^xsd:double ;
+                                                                                                            <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "300.7478234600385"^^xsd:double ;
+                                                                                                            rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                          ] .
+
+
+###  http://www.semanticweb.org/certh/safersWaterQuality
+<http://www.semanticweb.org/certh/safersWaterQuality> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://www.semanticweb.org/certh/safersObservation> ;
+                                                      <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "245.3899496285505"^^xsd:double ;
+                                                                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "52.73825345399661"^^xsd:double ;
+                                                                                                                   rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                 ] .
+
+
+###  http://www.semanticweb.org/certh/safersWeatherConditionParameter
+<http://www.semanticweb.org/certh/safersWeatherConditionParameter> rdf:type owl:Class ;
+                                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "240.1476015822495"^^xsd:double ;
+                                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "13.816319175053172"^^xsd:double ;
+                                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                              ] ;
+                                                                   rdfs:comment "Represents specific weather condition parameters which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersWeatherForecast
+<http://www.semanticweb.org/certh/safersWeatherForecast> rdf:type owl:Class ;
+                                                         <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "178.289577365433"^^xsd:double ;
+                                                                                                                      <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "19.156015769390457"^^xsd:double ;
+                                                                                                                      rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                    ] ;
+                                                         rdfs:comment "Represents weather forecast which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersWindSpeed
+<http://www.semanticweb.org/certh/safersWindSpeed> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://www.semanticweb.org/certh/safersWeatherConditionParameter> ;
+                                                   <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "9.836055919708036"^^xsd:double ;
+                                                                                                                <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "194.78753251056364"^^xsd:double ;
+                                                                                                                rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                              ] ;
+                                                   rdfs:comment "Represents wind speed which each Location has" .
+
+
+###  http://www.semanticweb.org/certh/safersZoneCleaningMission
+<http://www.semanticweb.org/certh/safersZoneCleaningMission> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://www.semanticweb.org/certh/safersMission> ;
+                                                             <http://ontologydesignpatterns.org/opla-sd#entityPosition> [ <http://ontologydesignpatterns.org/opla-sd#entityPositionX> "283.4099394425726"^^xsd:double ;
+                                                                                                                          <http://ontologydesignpatterns.org/opla-sd#entityPositionY> "208.33951772406235"^^xsd:double ;
+                                                                                                                          rdfs:comment "This is an entity positioning annotation generated by CoModIDE (https://comodide.com/). Removing this annotation will break rendering the CoModIDE schema diagram view."@en
+                                                                                                                        ] ;
+                                                             rdfs:comment "Represents a mission type assigned to a rescue unit during a crisis for zone cleaning." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/certh/safersfire1
+<http://www.semanticweb.org/certh/safersfire1> rdf:type owl:NamedIndividual ,
+                                                        <http://www.semanticweb.org/certh/safersFire> ;
+                                               <http://www.semanticweb.org/certh/safershasFireEnd> "2007-07-04T10:53:00"^^xsd:dateTime ;
+                                               <http://www.semanticweb.org/certh/safershasFireStart> "2007-07-04T08:15:00"^^xsd:dateTime ;
+                                               <http://www.semanticweb.org/certh/safershasLatitude> "34.74"^^xsd:float ;
+                                               <http://www.semanticweb.org/certh/safershasLongitude> "-119.75"^^xsd:float .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+owl:topObjectProperty rdfs:comment "relatesToMission" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <http://www.semanticweb.org/certh/safersAlert>
+                <http://www.semanticweb.org/certh/safersClassification>
+                <http://www.semanticweb.org/certh/safersDataset>
+                <http://www.semanticweb.org/certh/safersDepartment>
+                <http://www.semanticweb.org/certh/safersDetection>
+                <http://www.semanticweb.org/certh/safersFire>
+                <http://www.semanticweb.org/certh/safersHighlyVulnerableObject>
+                <http://www.semanticweb.org/certh/safersImpact>
+                <http://www.semanticweb.org/certh/safersImpactType>
+                <http://www.semanticweb.org/certh/safersIncident>
+                <http://www.semanticweb.org/certh/safersIncidentType>
+                <http://www.semanticweb.org/certh/safersLocation>
+                <http://www.semanticweb.org/certh/safersMap>
+                <http://www.semanticweb.org/certh/safersMediaItem>
+                <http://www.semanticweb.org/certh/safersMediaURIs>
+                <http://www.semanticweb.org/certh/safersMetereologyClimate>
+                <http://www.semanticweb.org/certh/safersMission>
+                <http://www.semanticweb.org/certh/safersObservation>
+                <http://www.semanticweb.org/certh/safersPhysicalEnvironment>
+                <http://www.semanticweb.org/certh/safersPoint>
+                <http://www.semanticweb.org/certh/safersReport>
+                <http://www.semanticweb.org/certh/safersSatellite>
+                <http://www.semanticweb.org/certh/safersSensor>
+                <http://www.semanticweb.org/certh/safersStakeholder>
+                <http://www.semanticweb.org/certh/safersTeam>
+                <http://www.semanticweb.org/certh/safersTopography>
+                <http://www.semanticweb.org/certh/safersVegetation>
+                <http://www.semanticweb.org/certh/safersVehicle>
+                <http://www.semanticweb.org/certh/safersWeatherConditionParameter>
+                <http://www.semanticweb.org/certh/safersWeatherForecast>
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
