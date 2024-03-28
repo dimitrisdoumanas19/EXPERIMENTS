@@ -1,0 +1,86 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sar: <http://example.org/sar-wildfire#> .
+
+### Ontology Declaration
+<http://example.org/sar-wildfire>
+    rdf:type owl:Ontology ;
+    rdfs:comment "A comprehensive ontology for SAR missions in wildfire incidents, addressing Competency Questions through detailed representation of incidents, impacts, weather conditions, missions, services, and observations." .
+
+### Classes
+sar:Incident rdf:type owl:Class .
+sar:Impact rdf:type owl:Class .
+sar:WeatherCondition rdf:type owl:Class .
+sar:ObservationData rdf:type owl:Class .
+sar:Mission rdf:type owl:Class .
+sar:Service rdf:type owl:Class .
+sar:Location rdf:type owl:Class .
+sar:Resource rdf:type owl:Class .
+sar:SmokeClassification rdf:type owl:Class .
+sar:VulnerableObject rdf:type owl:Class .
+sar:ForestryWork rdf:type owl:Class .
+sar:WeatherForecast rdf:type owl:Class .
+sar:PopulationDensity rdf:type owl:Class .
+
+### Object Properties
+sar:hasImpact rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:Impact .
+sar:hasWeatherCondition rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:WeatherCondition .
+sar:hasObservationData rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:ObservationData .
+sar:involvedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Service ;
+    rdfs:range sar:Mission .
+sar:locatedAt rdf:type owl:ObjectProperty ;
+    rdfs:domain [owl:unionOf (sar:Incident sar:Mission sar:ObservationData)];
+    rdfs:range sar:Location .
+sar:hasSmokeClassification rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range sar:SmokeClassification .
+sar:involves rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range sar:VulnerableObject .
+sar:hasForestryWorkStatus rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Location ;
+    rdfs:range sar:ForestryWork .
+sar:offersService rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Service ;
+    rdfs:range sar:Mission .
+sar:hasPopulationDensity rdf:type owl:ObjectProperty ;
+    rdfs:domain sar:Location ;
+    rdfs:range sar:PopulationDensity .
+
+### Data Properties
+sar:temperature rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:WeatherCondition ;
+    rdfs:range xsd:float .
+sar:humidity rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:WeatherCondition ;
+    rdfs:range xsd:float .
+sar:windSpeed rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:WeatherCondition ;
+    rdfs:range xsd:float .
+sar:creationDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:ObservationData ;
+    rdfs:range xsd:dateTime .
+sar:classificationType rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:SmokeClassification ;
+    rdfs:range xsd:string .
+sar:status rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:ForestryWork ;
+    rdfs:range xsd:string .
+sar:priority rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Incident ;
+    rdfs:range xsd:string .
+sar:urgency rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:Mission ;
+    rdfs:range xsd:string .
+sar:forecast rdf:type owl:DatatypeProperty ;
+    rdfs:domain sar:WeatherForecast ;
+    rdfs:range xsd:string.

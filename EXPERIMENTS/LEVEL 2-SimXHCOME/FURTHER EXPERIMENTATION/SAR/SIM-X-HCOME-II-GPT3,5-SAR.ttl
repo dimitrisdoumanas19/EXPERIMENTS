@@ -1,0 +1,223 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix ex: <http://example.org/ontology#> . 
+
+# Ontology declaration 
+ex:WildfireOntology rdf:type owl:Ontology ; 
+                    owl:versionInfo "1.1" . 
+
+# Classes 
+
+ex:WildfireIncident rdf:type owl:Class ; 
+  rdfs:label "Wildfire Incident" . 
+  
+ex:Impact rdf:type owl:Class ; 
+  rdfs:label "Impact" . 
+  
+ex:WeatherCondition rdf:type owl:Class ; 
+  rdfs:label "Weather Condition" . 
+  
+ex:ObservationData rdf:type owl:Class ; 
+  rdfs:label "Observation Data" . 
+  
+ex:Mission rdf:type owl:Class ; 
+  rdfs:label "Mission" . 
+  
+ex:MissionType rdf:type owl:Class ; 
+  rdfs:label "Mission Type" . 
+  
+# Properties 
+ex:hasImpact rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:Impact ; 
+  rdfs:label "has impact" . 
+  
+ex:hasWeatherCondition 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:WeatherCondition ; 
+  rdfs:label "has weather condition" . 
+  
+ex:hasObservationData 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:ObservationData ; 
+  rdfs:label "has observation data" . 
+  
+ex:belongsToMission 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:Mission ; 
+  rdfs:label "belongs to mission" . 
+  
+ex:hasObjective 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:Mission ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has objective" . 
+  
+ex:hasResource 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:Mission ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has resource" . 
+
+ex:hasOrganizationalUnit 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:Mission ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has organizational unit" . 
+  
+ex:hasStartTime 
+  rdf:type 
+  owl:DatatypeProperty ; 
+  rdfs:domain ex:Mission ; 
+  rdfs:range xsd:dateTime ; 
+  rdfs:label "has start time" . 
+
+ex:hasEndTime 
+  rdf:type 
+  owl:DatatypeProperty ; 
+  rdfs:domain ex:Mission ; 
+  rdfs:range xsd:dateTime ; 
+  rdfs:label "has end time" . 
+  
+ex:hasLocation 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:Location ; 
+  rdfs:label "has location" . 
+  
+ex:hasPriority 
+  rdf:type owl:DatatypeProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range xsd:int ; 
+  rdfs:label "has priority" . 
+
+ex:hasIncidentType 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:IncidentType ; 
+  rdfs:label "has incident type" . 
+  
+ex:hasMeasurements 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WeatherCondition ; 
+  rdfs:range xsd:float ; 
+  rdfs:label "has measurements" . 
+  
+ex:hasForecast 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WeatherCondition ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has forecast" . 
+  
+ex:hasDataFromSource 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:ObservationData ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has data from source" . 
+  
+ex:hasCreationDate 
+  rdf:type owl:DatatypeProperty ; 
+  rdfs:domain ex:ObservationData ; 
+  rdfs:range xsd:date ; 
+  rdfs:label "has creation date" . 
+  
+ex:hasClassificationType 
+  rdf:type owl:DatatypeProperty ; 
+  rdfs:domain ex:ObservationData ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has classification type" . 
+  
+ex:hasStatusOfWork 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:ObservationData ; 
+  rdfs:range xsd:string ; 
+  rdfs:label "has status of work" . 
+
+ex:hasMissionType 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:Mission ; 
+  rdfs:range ex:MissionType ; 
+  rdfs:label "has mission type" . 
+  
+ex:hasPopulationDensity 
+  rdf:type owl:DatatypeProperty ; 
+  rdfs:domain ex:Location ; 
+  rdfs:range xsd:float ; 
+  rdfs:label "has population density" . 
+  
+ex:hasInvolvedPeopleLocation 
+  rdf:type owl:ObjectProperty ; 
+  rdfs:domain ex:WildfireIncident ; 
+  rdfs:range ex:Location ; 
+  rdfs:label "has involved people location" . 
+  
+# Individuals 
+
+ex:FireSpread 
+  rdf:type ex:Impact ; 
+  rdfs:label "Fire Spread" . 
+  
+ex:InfrastructureDamage 
+  rdf:type ex:Impact ; 
+  rdfs:label "Infrastructure Damage" . 
+
+ex:EcologicalImpact 
+  rdf:type ex:Impact ; 
+  rdfs:label "Ecological Impact" . 
+  
+ex:EnvironmentalImpact 
+  rdf:type ex:Impact ; 
+  rdfs:label "Environmental Impact" . 
+  
+ex:SocialImpact 
+  rdf:type ex:Impact ; 
+  rdfs:label "Social Impact" . 
+  
+ex:EconomicImpact 
+  rdf:type ex:Impact ; 
+  rdfs:label "Economic Impact" . 
+  
+ex:Temperature 
+  rdf:type ex:WeatherCondition ; 
+  rdfs:label "Temperature" . 
+  
+ex:WindSpeed 
+  rdf:type ex:WeatherCondition ; 
+  rdfs:label "Wind Speed" . 
+  
+ex:Humidity 
+  rdf:type ex:WeatherCondition ; 
+  rdfs:label "Humidity" . 
+  
+ex:AirQuality 
+  rdf:type ex:WeatherCondition ; 
+  rdfs:label "Air Quality" . 
+  
+ex:Precipitation 
+  rdf:type ex:WeatherCondition ; 
+  rdfs:label "Precipitation" . 
+
+ex:AtmosphericPressure 
+  rdf:type ex:WeatherCondition ; 
+  rdfs:label "Atmospheric Pressure" . 
+  
+ex:SensorData 
+  rdf:type ex:ObservationData ; 
+  rdfs:label "Sensor Data" . 
+  
+ex:SatelliteData 
+  rdf:type ex:ObservationData ; 
+  rdfs:label "Satellite Data" . 
+
+ex:DroneData 
+  rdf:type ex:ObservationData ; 
+  rdfs:label "Drone Data" . 
+  
+ex:EmergencyResponseMission 
+  rdf:type ex:Mission ; 
+  rdfs:label "Emergency Response Mission" . 

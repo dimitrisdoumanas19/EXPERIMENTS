@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xml:base="http://example.org/wildfire_sar_ontology.rdf">
+
+    <owl:Class rdf:about="#WildfireIncident">
+    </owl:Class>
+    <owl:Class rdf:about="#InfrastructureDamage">
+      <owl:subClassOf rdf:resource="#Impact"/>
+    </owl:Class>
+    <owl:Class rdf:about="#EcologicalImpact">
+      <owl:subClassOf rdf:resource="#Impact"/>
+    </owl:Class>
+    <owl:Class rdf:about="#WeatherCondition">
+      <owl:subClassOf rdf:resource="#Entity"/>
+    </owl:Class>
+    <owl:Class rdf:about="#Mission">
+      <owl:subClassOf rdf:resource="#Activity"/>
+    </owl:Class>
+    <owl:Class rdf:about="#SARService">
+      <owl:subClassOf rdf:resource="#Service"/>
+    </owl:Class>
+    <owl:Class rdf:about="#HumanObservation">
+      <owl:subClassOf rdf:resource="#Observation"/>
+    </owl:Class>
+    <owl:Class rdf:about="#EarthObservation">
+      <owl:subClassOf rdf:resource="#Observation"/>
+    </owl:Class>
+    <owl:Class rdf:about="#SocialMediaData">
+      <owl:subClassOf rdf:resource="#Observation"/>
+    </owl:Class>
+    <owl:Class rdf:about="#FireIncidentObservation">
+      <owl:subClassOf rdf:resource="#Observation"/>
+    </owl:Class>
+    <owl:Class rdf:about="#ImportantWeatherVariable">
+      <owl:subClassOf rdf:resource="owl:Thing"/>
+    </owl:Class>
+    <owl:Class rdf:about="#VulnerableObject">
+      <owl:subClassOf rdf:resource="owl:Thing"/>
+    </owl:Class>
+    <owl:Class rdf:about="#WildfireForestryWork">
+      <owl:subClassOf rdf:resource="owl:Thing"/>
+    </owl:Class>
+
+    <owl:DatatypeProperty rdf:about="#hasTemperature">
+      <owl:domain rdf:resource="#WeatherCondition"/>
+      <owl:range rdf:resource="xsd:float"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasWindSpeed">
+      <owl:domain rdf:resource="#WeatherCondition"/>
+      <owl:range rdf:resource="xsd:float"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasHumidity">
+      <owl:domain rdf:resource="#WeatherCondition"/>
+      <owl:range rdf:resource="xsd:float"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasForecast">
+      <owl:domain rdf:resource="#WeatherCondition"/>
+      <owl:range rdf:resource="rdfs:Literal"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasDate">
+      <owl:domain rdf:resource="#WildfireIncident"/>
+      <owl:range rdf:resource="xsd:date"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasTime">
+      <owl:domain rdf:resource="#WildfireIncident"/>
+      <owl:range rdf:resource="xsd:time"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasAreaBurnt">
+      <owl:domain rdf:resource="#WildfireIncident"/>
+      <owl:range rdf:resource="xsd:float"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#hasNotificationMethod">
+      <owl:domain rdf:resource="#WildfireIncident"/>
+      <owl:range rdf:resource="xsd:string"/>
+    </owl:DatatypeProperty>
+</rdf:RDF>
